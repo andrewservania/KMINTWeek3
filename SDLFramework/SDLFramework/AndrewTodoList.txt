@@ -1,0 +1,8 @@
+1) DONE Disable automatic respawn of rabbit on random location
+2) DONE Disable automatic respawn of pill and weapon on random location when cow or rabbit has moved to the same node as one of them.
+3) DONE Fix Label update. Shortest path should only be visible if when the cow is chasing the rabbit. Afterwards it should disappear.
+
+Tasks for Sunday, 20th of September 2015
+4) DONE The PILL or WEAPON should change the cow's state, NOT the COW itself. Right now, it works but it is not logical.
+5) DONE When the game starts, all the game entities cow, rabbit, pill and weapon should spawn on a random location but never on the same spot as any of them.
+6) DONE During runtime, if a pill, weapon or rabbit respawns, it should never respawn on the location as any of the three. Including the cow!
