@@ -12,10 +12,12 @@ class CowChaseRabbitState :
 private:
 	int stepTimer;
 	std::stack<Node*> shortestPath;
+	bool pathIsCalculated;
 	void UpdateShortestPathLabel(Cow*cow, Rabbit* rabbbit);
 public:
 	CowChaseRabbitState();
 	~CowChaseRabbitState();
+	void CalculateNewPath();
 
 	void Enter(Cow* cow) override;
 	void Execute(Cow* cow) override;

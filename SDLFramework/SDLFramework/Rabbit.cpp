@@ -5,9 +5,10 @@
 Rabbit::Rabbit(int id) : BaseGameEntity(id)
 {
 	mTexture = mApplication->LoadTexture("rabbit-3.png");
+	setCurrentNode(Graph::graphNodes.at(rand() % 8));					// Put the rabbit on a random node on the screen
+
 	mApplication->AddRenderable(this);
-	mX = 500;
-	mY = 400;
+
 	stateMachine = new StateMachine<Rabbit>(this);
 	stateMachine->SetCurrentState(RabbitWanderingState::Instance());
 

@@ -1,9 +1,7 @@
 #include "CowChaseRabbitState.h"
 #include "Graph.h"
-#include "CowWanderingState.h"
 #include "AStar.h"
 #include "Graph.h"
-#include "CowWanderingState.h"
 #include "RabbitFleeingState.h"
 #include <memory>
 #include "Dashboard.h"
@@ -11,6 +9,8 @@ using namespace std;
 
 CowChaseRabbitState::CowChaseRabbitState()
 {
+	pathIsCalculated = false;
+
 }
 
 
@@ -20,15 +20,13 @@ CowChaseRabbitState::~CowChaseRabbitState()
 
 void CowChaseRabbitState::Enter(Cow* cow)
 {
-	stepTimer = 0;
-	shared_ptr<AStar> astar = make_shared<AStar>();
-	shortestPath = astar->GetShortestPath(cow->getCurrentNode(), Graph::rabbit->getCurrentNode());
 
-	UpdateShortestPathLabel(cow, Graph::rabbit);
 }
 
 void CowChaseRabbitState::Execute(Cow* cow)
 {
+	CalculateNewPath();
+
 	if (stepTimer == 50)
 	{
 		if (!shortestPath.empty())					// If shortest path is empty, then go to the goal node step by step
@@ -36,13 +34,28 @@ void CowChaseRabbitState::Execute(Cow* cow)
 			cow->setCurrentNode(shortestPath.top()); // Cow will walk to the top next node
 			shortestPath.pop();						 // Now remove the top next node
 			stepTimer = 0;
+			
 		}
-		else{
-			cow->GetFSM()->ChangeState(CowWanderingState::Instance());
+		else {
+			pathIsCalculated = false;
 		}
 	}
 
 	stepTimer++;
+}
+
+void CowChaseRabbitState::CalculateNewPath()
+{
+	if (!pathIsCalculated)
+	{
+		stepTimer = 0;
+		shared_ptr<AStar> astar = make_shared<AStar>();
+		shortestPath = astar->GetShortestPath(Graph::cow->getCurrentNode(), Graph::rabbit->getCurrentNode());
+
+		UpdateShortestPathLabel(Graph::cow, Graph::rabbit);
+		pathIsCalculated = true;
+	}
+
 }
 
 void CowChaseRabbitState::Exit(Cow* cow)

@@ -1,7 +1,6 @@
 #include "CowSearchForWeaponState.h"
 #include "AStar.h"
 #include "Graph.h"
-#include "CowWanderingState.h"
 #include <memory>
 #include "Dashboard.h"
 
@@ -35,7 +34,7 @@ void CowSearchForWeaponState::Execute(Cow* cow)
 			stepTimer = 0;
 		}
 		else{
-			cow->GetFSM()->ChangeState(CowWanderingState::Instance());
+		//	cow->GetFSM()->ChangeState(CowWanderingState::Instance()); NOT APPLICABLE FOR WEEK 3'S ASSIGNMENT
 			Graph::weapon->PutOnRandomLocation();
 
 		}

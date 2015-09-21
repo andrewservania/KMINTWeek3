@@ -14,8 +14,6 @@ std::string Dashboard::comment4;
 std::string Dashboard::comment5;
 std::string Dashboard::comment6;
 
-int Dashboard::cowBoredomLevel;
-
 using namespace std;
 
 Dashboard::Dashboard()
@@ -27,9 +25,7 @@ Dashboard::Dashboard()
 	comment4 = "-------------------------------------------------------------------------------------------";
 	comment5 = "-------------------------------------------------------------------------------------------";
 	comment6 = "-------------------------------------------------------------------------------------------";
-
-	cowBoredomLevel = 0;
-	ShortestPathLabel("");
+	//ShortestPathLabel("");
 }
 
 
@@ -52,8 +48,6 @@ void Dashboard::Update()
 	FWApplication::GetInstance()->DrawText(cowStateLabel, 300, 320);
 	RabbitStateLabel(Graph::rabbit->GetCurrentState());
 	FWApplication::GetInstance()->DrawText(rabbitStateLabel, 300, 340);
-
-	FWApplication::GetInstance()->DrawText("Cow boredom level: " + to_string(cowBoredomLevel), 300, 380);
 	FWApplication::GetInstance()->DrawText(shortestPathLabel, 300, 400);
 
 

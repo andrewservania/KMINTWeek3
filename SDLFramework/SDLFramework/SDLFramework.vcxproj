@@ -90,7 +90,6 @@
     <ClCompile Include="CowChaseRabbitState.cpp" />
     <ClCompile Include="CowSearchForPillState.cpp" />
     <ClCompile Include="CowSearchForWeaponState.cpp" />
-    <ClCompile Include="CowWanderingState.cpp" />
     <ClCompile Include="Dashboard.cpp" />
     <ClCompile Include="Edge.cpp" />
     <ClCompile Include="FWApplication.cpp" />
@@ -116,7 +115,6 @@
     <ClInclude Include="CowChaseRabbitState.h" />
     <ClInclude Include="CowSearchForPillState.h" />
     <ClInclude Include="CowSearchForWeaponState.h" />
-    <ClInclude Include="CowWanderingState.h" />
     <ClInclude Include="Dashboard.h" />
     <ClInclude Include="Edge.h" />
     <ClInclude Include="FWApplication.h" />
