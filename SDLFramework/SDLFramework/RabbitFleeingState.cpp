@@ -23,7 +23,7 @@ void RabbitFleeingState::Execute(Rabbit* rabbit)
 {
 
 		
-	if (timer == 80)
+	if (timer == 50)
 	{
 
 		if (fled == false)

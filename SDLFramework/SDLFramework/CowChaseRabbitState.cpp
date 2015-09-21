@@ -27,7 +27,7 @@ void CowChaseRabbitState::Execute(Cow* cow)
 {
 	CalculateNewPath();
 
-	if (stepTimer == 50)
+	if (stepTimer == 30)
 	{
 		if (!shortestPath.empty())					// If shortest path is empty, then go to the goal node step by step
 		{
@@ -37,7 +37,7 @@ void CowChaseRabbitState::Execute(Cow* cow)
 			
 		}
 		else {
-			pathIsCalculated = false;
+				pathIsCalculated = false;
 		}
 	}
 
@@ -46,7 +46,10 @@ void CowChaseRabbitState::Execute(Cow* cow)
 
 void CowChaseRabbitState::CalculateNewPath()
 {
-	if (!pathIsCalculated)
+	// If path has already been calculated, do not calculate again in order to save on processor overhead
+	// Also, do not calculate shortestpath if the cow has moved towards the rabbit and is already standing on the same node as
+	// the rabbit. (Give the rabbit some time to move to a different location THEN calculate the shortestpath from cow to rabbit again.
+	if (!pathIsCalculated && Graph::cow->getCurrentNode()->id != Graph::rabbit->getCurrentNode()->id)
 	{
 		stepTimer = 0;
 		shared_ptr<AStar> astar = make_shared<AStar>();
