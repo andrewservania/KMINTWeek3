@@ -1,8 +1,16 @@
-1) DONE Disable automatic respawn of rabbit on random location
-2) DONE Disable automatic respawn of pill and weapon on random location when cow or rabbit has moved to the same node as one of them.
-3) DONE Fix Label update. Shortest path should only be visible if when the cow is chasing the rabbit. Afterwards it should disappear.
 
-Tasks for Sunday, 20th of September 2015
-4) DONE The PILL or WEAPON should change the cow's state, NOT the COW itself. Right now, it works but it is not logical.
-5) DONE When the game starts, all the game entities cow, rabbit, pill and weapon should spawn on a random location but never on the same spot as any of them.
-6) DONE During runtime, if a pill, weapon or rabbit respawns, it should never respawn on the location as any of the three. Including the cow!
+Tasks for 21th of September 2015
+1) Toestand diagram van Week 2 & 3 bekijken en verifieren
+2) Cow starts in 'Chasing' state
+3) Comment should be rewritten
+4) The pill will not affect the cow anymore
+5) The pill will now affect the rabbit. The rabbit must go into a Wandering
+   State, however, The cow will be go into an induced sleep if it reaches
+   the rabbit.
+6) The cow's induced sleep will last for 5 turns
+7) Define a turn
+8) Implement a turn
+8) The rabbit should be able to choose between 3 states
+	1. Flee
+	2. Search for weapon
+	3. Search for sleeping pill

@@ -100,6 +100,8 @@
     <ClCompile Include="Pill.cpp" />
     <ClCompile Include="Rabbit.cpp" />
     <ClCompile Include="RabbitFleeingState.cpp" />
+    <ClCompile Include="RabbitSearchForPillState.cpp" />
+    <ClCompile Include="RabbitSearchForWeaponState.cpp" />
     <ClCompile Include="RabbitWanderingState.cpp" />
     <ClCompile Include="Weapon.cpp" />
   </ItemGroup>
@@ -124,6 +126,8 @@
     <ClInclude Include="Pill.h" />
     <ClInclude Include="Rabbit.h" />
     <ClInclude Include="RabbitFleeingState.h" />
+    <ClInclude Include="RabbitSearchForPillState.h" />
+    <ClInclude Include="RabbitSearchForWeaponState.h" />
     <ClInclude Include="RabbitWanderingState.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateMachine.h" />
