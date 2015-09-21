@@ -1,8 +1,9 @@
 
 Tasks for 21th of September 2015
 1) Toestand diagram van Week 2 & 3 bekijken en verifieren
-2) Cow starts in 'Chasing' state
+2) DONE Cow starts in 'Chasing' state 
 3) Comment should be rewritten
+3.b) DONE Remove old comments
 4) The pill will not affect the cow anymore
 5) The pill will now affect the rabbit. The rabbit must go into a Wandering
    State, however, The cow will be go into an induced sleep if it reaches

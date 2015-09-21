@@ -18,7 +18,6 @@ void CowSearchForWeaponState::Enter(Cow* cow)
 {
 	stepTimer = 0;
 	shared_ptr<AStar> astar = make_shared<AStar>();
-
 	shortestPath = astar->GetShortestPath(cow->getCurrentNode(), Graph::weapon->GetCurrentNode());
 	UpdateShortestPathLabel(cow, Graph::weapon);
 }

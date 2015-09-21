@@ -1,13 +1,20 @@
 #pragma once
 #include "State.h"
 #include "Rabbit.h"
+#include "Weapon.h"
+#include "Node.h"
+#include <stack>
+
 class RabbitSearchForWeaponState :
 	public State<Rabbit>
 {
 public:
+	int stepTimer = 0;
+	std::stack<Node*> shortestPath;
+
 	RabbitSearchForWeaponState();
 	~RabbitSearchForWeaponState();
-
+	void UpdateShortestPathLabel(Rabbit* rabbit, Weapon* weapon);
 	void Enter(Rabbit* rabbit) override;
 	void Execute(Rabbit* rabbit) override;
 	void Exit(Rabbit* rabbit) override;

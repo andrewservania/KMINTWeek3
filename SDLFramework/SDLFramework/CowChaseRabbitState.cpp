@@ -20,7 +20,11 @@ CowChaseRabbitState::~CowChaseRabbitState()
 
 void CowChaseRabbitState::Enter(Cow* cow)
 {
+	stepTimer = 0;
+	shared_ptr<AStar> astar = make_shared<AStar>();
+	shortestPath = astar->GetShortestPath(Graph::cow->getCurrentNode(), Graph::rabbit->getCurrentNode());
 
+	UpdateShortestPathLabel(Graph::cow, Graph::rabbit);
 }
 
 void CowChaseRabbitState::Execute(Cow* cow)
