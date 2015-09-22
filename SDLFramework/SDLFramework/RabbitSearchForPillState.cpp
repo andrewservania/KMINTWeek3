@@ -41,7 +41,7 @@ void RabbitSearchForPillState::Enter(Rabbit* rabbit)
 void RabbitSearchForPillState::Execute(Rabbit* rabbit)
 {
 	StartSearchingForPill(rabbit);
-	if (stepTimer == 50)
+	if (stepTimer == 25)
 	{
 		if (!shortestPath.empty())					 // If shortest path is empty, then go to the goal node step by step
 		{

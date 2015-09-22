@@ -32,7 +32,7 @@ void CowChaseRabbitState::Execute(Cow* cow)
 {
 	CalculateNewPath();
 
-	if (stepTimer == 30)
+	if (stepTimer == 25)
 	{
 		if (!shortestPath.empty())					// If shortest path is empty, then go to the goal node step by step
 		{

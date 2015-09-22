@@ -9,7 +9,7 @@ using namespace std;
 
 RabbitSearchForWeaponState::RabbitSearchForWeaponState()
 {
-
+	rabbitStartedSearching = false;
 }
 
 
@@ -17,20 +17,32 @@ RabbitSearchForWeaponState::~RabbitSearchForWeaponState()
 {
 }
 
+void RabbitSearchForWeaponState::StartSearchingForWeapon(Rabbit* rabbit)
+{
+	if (!rabbitStartedSearching)
+	{
+		stepTimer = 0;
+		shared_ptr<AStar> astar = make_shared<AStar>();
+		shortestPath = astar->GetShortestPath(rabbit->getCurrentNode(), Graph::weapon->GetCurrentNode());
+		rabbitStartedSearching = true;
+	}
+}
 
 
 void RabbitSearchForWeaponState::Enter(Rabbit* rabbit)
 {
+
 	stepTimer = 0;
 	shared_ptr<AStar> astar = make_shared<AStar>();
 
 	shortestPath = astar->GetShortestPath(rabbit->getCurrentNode(), Graph::weapon->GetCurrentNode());
-	UpdateShortestPathLabel(shortestPath);
+//	UpdateShortestPathLabel(shortestPath);
 }
 
 void RabbitSearchForWeaponState::Execute(Rabbit* rabbit)
 {
-	if (stepTimer == 50)
+	StartSearchingForWeapon(rabbit);
+	if (stepTimer == 25)
 	{
 		if (!shortestPath.empty())					    // If shortest path is empty, then go to the goal node step by step
 		{

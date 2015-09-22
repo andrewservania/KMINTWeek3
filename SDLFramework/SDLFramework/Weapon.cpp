@@ -1,5 +1,6 @@
 #include "Weapon.h"
 #include "Graph.h"
+#include "RabbitWanderingState.h"
 
 Weapon::Weapon()
 {
@@ -23,10 +24,14 @@ Weapon::~Weapon()
 
 void Weapon::Update(float deltaTime)
 {
-	// If the rabbit or the cow is on the same spot as the weapon,
-	// respawn the weapon somewhere else.
-	//if (Graph::cow->currentNode->id == currentNode->id || Graph::rabbit->currentNode->id == currentNode->id)
-	//	SetCurrentNode(Graph::graphNodes.at(rand() % Graph::graphNodes.size()));
+	if (Graph::rabbit->getCurrentNode()->id == currentNode->id)
+	{
+		if (Graph::rabbit->GetCurrentState() == "Search For Weapon")
+		{
+			Graph::rabbit->GetFSM()->ChangeState(RabbitWanderingState::Instance());
+			PutOnRandomLocation();
+		}
+	}
 }
 
 void Weapon::Draw()
@@ -44,5 +49,8 @@ void Weapon::SetCurrentNode(Node* newNode)
 
 void Weapon::PutOnRandomLocation()
 {
+	while (Graph::cow->getCurrentNode()->id == currentNode->id ||
+		Graph::rabbit->getCurrentNode()->id == currentNode->id ||
+		Graph::pill->GetCurrentNode()->id == currentNode->id)
 	SetCurrentNode(Graph::graphNodes.at(rand() % Graph::graphNodes.size()));
 }

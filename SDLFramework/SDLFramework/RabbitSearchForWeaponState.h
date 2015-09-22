@@ -11,10 +11,12 @@ class RabbitSearchForWeaponState :
 public:
 	int stepTimer = 0;
 	std::stack<Node*> shortestPath;
+	bool rabbitStartedSearching;
 
 	RabbitSearchForWeaponState();
 	~RabbitSearchForWeaponState();
 	void UpdateShortestPathLabel(std::stack<Node*> _shortestPath);
+	void StartSearchingForWeapon(Rabbit* rabbit);
 	void Enter(Rabbit* rabbit) override;
 	void Execute(Rabbit* rabbit) override;
 	void Exit(Rabbit* rabbit) override;
