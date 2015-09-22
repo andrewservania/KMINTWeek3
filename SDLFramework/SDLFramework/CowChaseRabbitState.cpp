@@ -24,7 +24,8 @@ void CowChaseRabbitState::Enter(Cow* cow)
 	shared_ptr<AStar> astar = make_shared<AStar>();
 	shortestPath = astar->GetShortestPath(Graph::cow->getCurrentNode(), Graph::rabbit->getCurrentNode());
 
-	UpdateShortestPathLabel(Graph::cow, Graph::rabbit);
+	UpdateShortestPathLabel(shortestPath);
+	//UpdateShortestPathLabel(Graph::cow, Graph::rabbit);
 }
 
 void CowChaseRabbitState::Execute(Cow* cow)
@@ -59,7 +60,7 @@ void CowChaseRabbitState::CalculateNewPath()
 		shared_ptr<AStar> astar = make_shared<AStar>();
 		shortestPath = astar->GetShortestPath(Graph::cow->getCurrentNode(), Graph::rabbit->getCurrentNode());
 
-		UpdateShortestPathLabel(Graph::cow, Graph::rabbit);
+		UpdateShortestPathLabel(shortestPath);
 		pathIsCalculated = true;
 	}
 
@@ -69,19 +70,19 @@ void CowChaseRabbitState::Exit(Cow* cow)
 {
 }
 
-void CowChaseRabbitState::UpdateShortestPathLabel(Cow* cow, Rabbit* rabbit)
+void CowChaseRabbitState::UpdateShortestPathLabel(stack<Node*> _shortestPath)
 {
-	shared_ptr<AStar> aStar = make_shared<AStar>();
-	auto shortPath = aStar->GetShortestPath(cow->getCurrentNode(), rabbit->getCurrentNode());
+	//shared_ptr<AStar> aStar = make_shared<AStar>();
+	//auto shortPath = aStar->GetShortestPath(cow->getCurrentNode(), rabbit->getCurrentNode());
 	string shortestPathLabel = "Shortest path from cow to rabbit: ";
-	while (!shortPath.empty())
+	while (!_shortestPath.empty())
 	{
-		Node* step = shortPath.top();
+		Node* step = _shortestPath.top();
 
 		shortestPathLabel += to_string(step->id).c_str();
 
-		shortPath.pop();
-		if (!shortPath.empty())
+		_shortestPath.pop();
+		if (!_shortestPath.empty())
 			shortestPathLabel += " -> ";
 	}
 	Dashboard::Instance()->ShortestPathLabel(shortestPathLabel);

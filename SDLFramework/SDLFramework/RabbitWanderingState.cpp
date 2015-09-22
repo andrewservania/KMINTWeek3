@@ -1,6 +1,6 @@
 #include "RabbitWanderingState.h"
 #include "Graph.h"
-#include "RabbitFleeingState.h"
+#include "RabbitSearchForPillState.h"
 
 RabbitWanderingState::RabbitWanderingState()
 {
@@ -22,7 +22,7 @@ void RabbitWanderingState::Execute(Rabbit* rabbit)
 	// If the cow is chasing the rabbit and the cow is on the same spot as the rabbit
 	if (Graph::cow->GetCurrentState() == "Chase Rabbit" &&
 		Graph::cow->getCurrentNode()->id == rabbit->getCurrentNode()->id)
-		rabbit->GetFSM()->ChangeState(RabbitFleeingState::Instance());
+		rabbit->GetFSM()->ChangeState(RabbitSearchForPillState::Instance());
 	
 }
 

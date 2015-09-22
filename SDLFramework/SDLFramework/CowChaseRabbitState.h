@@ -13,7 +13,7 @@ private:
 	int stepTimer;
 	std::stack<Node*> shortestPath;
 	bool pathIsCalculated;
-	void UpdateShortestPathLabel(Cow*cow, Rabbit* rabbbit);
+	void UpdateShortestPathLabel(std::stack<Node*> _shortestPath);
 public:
 	CowChaseRabbitState();
 	~CowChaseRabbitState();

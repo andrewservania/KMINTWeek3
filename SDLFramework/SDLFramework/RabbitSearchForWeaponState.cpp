@@ -9,6 +9,7 @@ using namespace std;
 
 RabbitSearchForWeaponState::RabbitSearchForWeaponState()
 {
+
 }
 
 
@@ -24,7 +25,7 @@ void RabbitSearchForWeaponState::Enter(Rabbit* rabbit)
 	shared_ptr<AStar> astar = make_shared<AStar>();
 
 	shortestPath = astar->GetShortestPath(rabbit->getCurrentNode(), Graph::weapon->GetCurrentNode());
-	UpdateShortestPathLabel(rabbit, Graph::weapon);
+	UpdateShortestPathLabel(shortestPath);
 }
 
 void RabbitSearchForWeaponState::Execute(Rabbit* rabbit)
@@ -48,19 +49,18 @@ void RabbitSearchForWeaponState::Exit(Rabbit* rabbit)
 {	
 }
 
-void RabbitSearchForWeaponState::UpdateShortestPathLabel(Rabbit* rabbit, Weapon* weapon)
+void RabbitSearchForWeaponState::UpdateShortestPathLabel(stack<Node*> _shortestPath)
 {
-	shared_ptr<AStar> aStar = make_shared<AStar>();
-	auto shortPath = aStar->GetShortestPath(rabbit->getCurrentNode(), weapon->GetCurrentNode());
+	//shared_ptr<AStar> aStar = make_shared<AStar>();
+	//auto shortPath = aStar->GetShortestPath(rabbit->getCurrentNode(), weapon->GetCurrentNode());
 	string shortestPathLabel = "Shortest path from cow to rabbit: ";
-	while (!shortPath.empty())
+	while (!_shortestPath.empty())
 	{
-		Node* step = shortPath.top();
-
+		Node* step = _shortestPath.top();
 		shortestPathLabel += to_string(step->id).c_str();
 
-		shortPath.pop();
-		if (!shortPath.empty())
+		_shortestPath.pop();
+		if (!_shortestPath.empty())
 			shortestPathLabel += " -> ";
 	}
 	Dashboard::Instance()->ShortestPathLabel(shortestPathLabel);

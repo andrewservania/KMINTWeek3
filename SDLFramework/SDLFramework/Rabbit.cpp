@@ -1,6 +1,6 @@
 #include "Rabbit.h"
 #include "Graph.h"
-#include "RabbitWanderingState.h"
+#include "RabbitSearchForPillState.h"
 
 Rabbit::Rabbit(int id) : BaseGameEntity(id)
 {
@@ -10,7 +10,7 @@ Rabbit::Rabbit(int id) : BaseGameEntity(id)
 	mApplication->AddRenderable(this);
 
 	stateMachine = new StateMachine<Rabbit>(this);
-	stateMachine->SetCurrentState(RabbitWanderingState::Instance());
+	stateMachine->SetCurrentState(RabbitSearchForPillState::Instance());
 
 }
 

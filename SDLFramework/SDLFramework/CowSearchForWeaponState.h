@@ -12,7 +12,7 @@ class CowSearchForWeaponState :
 private:
 	std::stack<Node*> shortestPath;
 	int stepTimer;
-	void UpdateShortestPathLabel(Cow* cow, Weapon* weapon);
+	void UpdateShortestPathLabel(std::stack<Node*> _shortestPath);
 
 public:
 	

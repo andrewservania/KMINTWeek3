@@ -12,7 +12,7 @@ class CowSearchForPillState :
 private:
 	int stepTimer;
 	std::stack<Node*> shortestPath;
-	void UpdateShortestPathLabel(Cow* cow, Pill* pill);
+	void UpdateShortestPathLabel(std::stack<Node*> shortestPath);
 public:
 	CowSearchForPillState();
 	~CowSearchForPillState();

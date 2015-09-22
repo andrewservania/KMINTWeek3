@@ -14,7 +14,7 @@ public:
 
 	RabbitSearchForWeaponState();
 	~RabbitSearchForWeaponState();
-	void UpdateShortestPathLabel(Rabbit* rabbit, Weapon* weapon);
+	void UpdateShortestPathLabel(std::stack<Node*> _shortestPath);
 	void Enter(Rabbit* rabbit) override;
 	void Execute(Rabbit* rabbit) override;
 	void Exit(Rabbit* rabbit) override;

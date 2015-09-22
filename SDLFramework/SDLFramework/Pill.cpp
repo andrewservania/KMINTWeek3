@@ -1,6 +1,6 @@
 #include "Pill.h"
 #include "Graph.h"
-#include "CowChaseRabbitState.h"
+#include "RabbitWanderingState.h"
 
 Pill::Pill()
 {
@@ -22,11 +22,11 @@ Pill::~Pill()
 // Check whether the cow has searching for the pill, if so make it chase the rabbit
 void Pill::Update(float deltaTime)
 {
-	if (Graph::cow->getCurrentNode()->id == currentNode->id)
+	if (Graph::rabbit->getCurrentNode()->id == currentNode->id)
 	{
-		if (Graph::cow->GetCurrentState() == "Search For Pill")
+		if (Graph::rabbit->GetCurrentState() == "Search For Pill")
 		{
-			Graph::cow->GetFSM()->ChangeState(CowChaseRabbitState::Instance());
+		    Graph::rabbit->GetFSM()->ChangeState(RabbitWanderingState::Instance());
 			PutOnRandomLocation();
 		}
 	}
