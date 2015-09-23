@@ -5,6 +5,8 @@
 class RabbitWanderingState :
 	public State<Rabbit>
 {
+private:
+	int counter;
 public:
 	RabbitWanderingState();
 	~RabbitWanderingState();

@@ -7,6 +7,7 @@
 
 RabbitWanderingState::RabbitWanderingState()
 {
+	counter = 0;
 }
 
 
@@ -22,7 +23,21 @@ void RabbitWanderingState::Enter(Rabbit* rabbit)
 // Execute the code corresponding to the Wandering state for the rabbit
 void RabbitWanderingState::Execute(Rabbit* rabbit)
 {
-	int choice = 1;
+
+
+
+	if (counter == 50){
+		counter = 0;
+
+		// Cow will go to a neighboring node from the current node in which it is standing
+		int amountOfneighbors = rabbit->getCurrentNode()->GetEdges().size();
+		Node* nodeToWanderTo = rabbit->getCurrentNode()->GetEdges().at(rand() % amountOfneighbors)->child;
+		rabbit->setCurrentNode(nodeToWanderTo);
+		
+	}
+	counter++;
+
+
 	// If the cow is chasing the rabbit and the cow is on the same spot as the rabbit
 	if (Graph::cow->GetCurrentState() == "Chase Rabbit" &&
 		Graph::cow->getCurrentNode()->id == rabbit->getCurrentNode()->id)
