@@ -1,12 +1,12 @@
 #include "Rabbit.h"
 #include "Graph.h"
 #include "RabbitWanderingState.h"
-#include "SDL.h"
 Rabbit::Rabbit(int id) : BaseGameEntity(id)
 {
 	mTexture = mApplication->LoadTexture("rabbit-3.png");
 	setCurrentNode(Graph::graphNodes.at(rand() % 8));					// Put the rabbit on a random node on the screen
-
+	pickedUpPill = false;
+	pickedUpWeapon = false;
 	mApplication->AddRenderable(this);
 
 	stateMachine = new StateMachine<Rabbit>(this);
@@ -20,7 +20,6 @@ Rabbit::~Rabbit()
 
 void Rabbit::Update(float deltaTime)
 {
-	SDL_Delay(1000 / mApplication->mFPS);
 	stateMachine->Update();
 }
 

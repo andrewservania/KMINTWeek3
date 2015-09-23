@@ -29,6 +29,7 @@ void Weapon::Update(float deltaTime)
 		if (Graph::rabbit->GetCurrentState() == "Search For Weapon")
 		{
 			Graph::rabbit->GetFSM()->ChangeState(RabbitWanderingState::Instance());
+			Graph::rabbit->pickedUpWeapon = true;
 			PutOnRandomLocation();
 		}
 	}

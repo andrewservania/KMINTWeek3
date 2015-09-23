@@ -190,6 +190,7 @@ void FWApplication::UpdateGameObjects()
 				}
 			}
 		}
+		SDL_Delay(1000 / mFPS);
 		obj->Update((float)mDeltaTimeMS / 1000.0f);
 	}
 }
@@ -204,7 +205,7 @@ void FWApplication::RenderGameObjects()
 
 void FWApplication::SetTargetFPS(unsigned short target)
 {
-	mTargetDelayMS = 1000 / target;
+	//mTargetDelayMS = 1000 / target;
 	mFPS = static_cast<uint32_t>(target);
 }
 

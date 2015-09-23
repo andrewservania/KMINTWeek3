@@ -88,6 +88,7 @@
     <ClCompile Include="BaseGameEntity.cpp" />
     <ClCompile Include="Cow.cpp" />
     <ClCompile Include="CowChaseRabbitState.cpp" />
+    <ClCompile Include="CowSleepingState.cpp" />
     <ClCompile Include="Dashboard.cpp" />
     <ClCompile Include="Edge.cpp" />
     <ClCompile Include="FWApplication.cpp" />
@@ -112,6 +113,7 @@
     <ClInclude Include="Cow.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="CowChaseRabbitState.h" />
+    <ClInclude Include="CowSleepingState.h" />
     <ClInclude Include="Dashboard.h" />
     <ClInclude Include="Edge.h" />
     <ClInclude Include="FWApplication.h" />

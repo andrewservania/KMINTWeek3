@@ -27,6 +27,7 @@ void Pill::Update(float deltaTime)
 		if (Graph::rabbit->GetCurrentState() == "Search For Pill")
 		{
 		    Graph::rabbit->GetFSM()->ChangeState(RabbitWanderingState::Instance());
+			Graph::rabbit->pickedUpPill = true;
 			PutOnRandomLocation();
 		}
 	}

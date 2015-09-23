@@ -10,7 +10,8 @@ private:
 public:
 	RabbitWanderingState();
 	~RabbitWanderingState();
-
+	void UsePill(Rabbit* rabbit);
+	void UseWeapon(Rabbit* rabbit);
 	void Enter(Rabbit* cow) override;
 	void Execute(Rabbit* cow) override;
 	void Exit(Rabbit* cow) override;

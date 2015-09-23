@@ -5,7 +5,7 @@
 #include <memory>
 #include <assert.h>
 #include "CowChaseRabbitState.h"
-#include "SDL.h"
+
 using namespace std;
 
 Cow::Cow(int id) : BaseGameEntity(id)
@@ -36,7 +36,7 @@ Cow::Cow(int id) : BaseGameEntity(id)
 
 void Cow::Update(float deltaTime)
 {
-	SDL_Delay(1000 / mApplication->mFPS);
+	
 	stateMachine->Update();
 }
 
@@ -84,4 +84,14 @@ void Cow::OnLeftClick(SDL_Event &event)
 void Cow::OnRightClick(SDL_Event &event)
 {
 	printf("Right-clicked on cow!\n");
+}
+
+
+void Cow::PutOnRandomLocation()
+{
+	setCurrentNode(Graph::graphNodes.at(rand() % Graph::graphNodes.size()));
+	while (Graph::weapon->GetCurrentNode()->id == currentNode->id ||
+		Graph::rabbit->getCurrentNode()->id == currentNode->id ||
+		Graph::pill->GetCurrentNode()->id == currentNode->id)
+		setCurrentNode(Graph::graphNodes.at(rand() % Graph::graphNodes.size()));
 }

@@ -23,8 +23,8 @@ void RabbitFleeingState::Execute(Rabbit* rabbit)
 {
 
 		
-	if (timer == 50)
-	{
+	//if (timer == 50)
+	//{
 
 		if (fled == false)
 		{
@@ -43,8 +43,8 @@ void RabbitFleeingState::Execute(Rabbit* rabbit)
 
 		rabbit->GetFSM()->ChangeState(RabbitWanderingState::Instance());
 		timer = 0;
-	}
-	timer++;
+	//}
+	//timer++;
 }
 
 void RabbitFleeingState::Exit(Rabbit* rabbit)

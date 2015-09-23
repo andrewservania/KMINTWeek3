@@ -31,34 +31,23 @@ void CowChaseRabbitState::Enter(Cow* cow)
 int counter = 0;
 void CowChaseRabbitState::Execute(Cow* cow)
 {
-	//CalculateNewPath();
+	CalculateNewPath();
 
-
-	//if (counter == 50){
-	//	counter = 0;
-
-		// Cow will go to a neighboring node from the current node in which it is standing
-		int amountOfneighbors = cow->getCurrentNode()->GetEdges().size();
-		Node* nodeToWanderTo = cow->getCurrentNode()->GetEdges().at(rand() % amountOfneighbors)->child;
-		cow->setCurrentNode(nodeToWanderTo);
-
-	//}
-	//counter++;
 
 
 
 	//if (stepTimer == 25)
 	//{
-	//	if (!shortestPath.empty())					// If shortest path is empty, then go to the goal node step by step
-	//	{
-	//		cow->setCurrentNode(shortestPath.top()); // Cow will walk to the top next node
-	//		shortestPath.pop();						 // Now remove the top next node
-	//		stepTimer = 0;
-	//		
-	//	}
-	//	else {
-	//			pathIsCalculated = false;
-	//	}
+		if (!shortestPath.empty())					// If shortest path is empty, then go to the goal node step by step
+		{
+			cow->setCurrentNode(shortestPath.top()); // Cow will walk to the top next node
+			shortestPath.pop();						 // Now remove the top next node
+			stepTimer = 0;
+			
+		}
+		else {
+				pathIsCalculated = false;
+		}
 	//}
 
 	//stepTimer++;

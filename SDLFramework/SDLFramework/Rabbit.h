@@ -10,6 +10,9 @@ public:
 	Node* currentNode;
 	StateMachine<Rabbit>* stateMachine;
 
+	bool pickedUpWeapon;
+	bool pickedUpPill;
+
 	Rabbit(int id);
 	~Rabbit();
 	virtual void Update(float deltaTime) override;
