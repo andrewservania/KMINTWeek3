@@ -1,7 +1,7 @@
 #include "Rabbit.h"
 #include "Graph.h"
 #include "RabbitWanderingState.h"
-
+#include "SDL.h"
 Rabbit::Rabbit(int id) : BaseGameEntity(id)
 {
 	mTexture = mApplication->LoadTexture("rabbit-3.png");
@@ -20,6 +20,7 @@ Rabbit::~Rabbit()
 
 void Rabbit::Update(float deltaTime)
 {
+	SDL_Delay(1000 / mApplication->mFPS);
 	stateMachine->Update();
 }
 

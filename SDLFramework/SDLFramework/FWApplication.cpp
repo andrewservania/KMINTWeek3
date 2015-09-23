@@ -10,6 +10,7 @@
 
 FWApplication * FWApplication::mInstance;
 
+
 FWApplication::FWApplication(int offsetX, int offsetY, int width, int height)
 	: mTargetDelayMS(1000 / 60),
 	mStartCycleTimeMS(0),
@@ -17,7 +18,8 @@ FWApplication::FWApplication(int offsetX, int offsetY, int width, int height)
 	mTimeMS(0),
 	mIsRunning(true),
 	mFontSize(12),
-	mFontName("")
+	mFontName(""),
+	mFPS(60)
 	//mTextBackgroundColor(0xFF,0xFF,0xFF,0xFF)
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
@@ -203,6 +205,7 @@ void FWApplication::RenderGameObjects()
 void FWApplication::SetTargetFPS(unsigned short target)
 {
 	mTargetDelayMS = 1000 / target;
+	mFPS = static_cast<uint32_t>(target);
 }
 
 void FWApplication::RemoveTexture(SDL_Texture * texture)

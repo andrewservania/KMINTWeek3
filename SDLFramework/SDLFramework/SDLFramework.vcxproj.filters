@@ -44,13 +44,7 @@
     <ClCompile Include="Dashboard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CowSearchForWeaponState.cpp">
-      <Filter>Source Files\States</Filter>
-    </ClCompile>
     <ClCompile Include="RabbitWanderingState.cpp">
-      <Filter>Source Files\States</Filter>
-    </ClCompile>
-    <ClCompile Include="CowSearchForPillState.cpp">
       <Filter>Source Files\States</Filter>
     </ClCompile>
     <ClCompile Include="CowChaseRabbitState.cpp">
@@ -116,12 +110,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CowChaseRabbitState.h">
-      <Filter>Header Files\States</Filter>
-    </ClInclude>
-    <ClInclude Include="CowSearchForPillState.h">
-      <Filter>Header Files\States</Filter>
-    </ClInclude>
-    <ClInclude Include="CowSearchForWeaponState.h">
       <Filter>Header Files\States</Filter>
     </ClInclude>
     <ClInclude Include="IGameObject.h">

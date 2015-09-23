@@ -5,6 +5,7 @@
 #include <memory>
 #include <assert.h>
 #include "CowChaseRabbitState.h"
+#include "SDL.h"
 using namespace std;
 
 Cow::Cow(int id) : BaseGameEntity(id)
@@ -35,6 +36,7 @@ Cow::Cow(int id) : BaseGameEntity(id)
 
 void Cow::Update(float deltaTime)
 {
+	SDL_Delay(1000 / mApplication->mFPS);
 	stateMachine->Update();
 }
 
