@@ -11,7 +11,7 @@ Tasks for 21th of September 2015
 6) The cow's induced sleep will last for 5 turns
 7) Define a turn
 8) Implement a turn
-8) The rabbit should be able to choose between 3 states
+8) DONE The rabbit should be able to choose between 3 states
 	1. Flee
 	2. Search for weapon
 	3. Search for sleeping pill

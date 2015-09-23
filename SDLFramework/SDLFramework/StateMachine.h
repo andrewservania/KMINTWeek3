@@ -71,6 +71,6 @@ public:
 
 	// Return true if the current state's type is equal to the type of the
 	// class passed as a parameter
-	//bool isInState(const State<class T>& st) const;
+	bool isInState(const State<T>& st) const;
 };
 

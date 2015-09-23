@@ -97,6 +97,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Pill.cpp" />
+    <ClCompile Include="ProbabilityDistribution.cpp" />
     <ClCompile Include="Rabbit.cpp" />
     <ClCompile Include="RabbitFleeingState.cpp" />
     <ClCompile Include="RabbitSearchForPillState.cpp" />
@@ -122,6 +123,7 @@
     <ClInclude Include="IGameObject.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Pill.h" />
+    <ClInclude Include="ProbabilityDistribution.h" />
     <ClInclude Include="Rabbit.h" />
     <ClInclude Include="RabbitFleeingState.h" />
     <ClInclude Include="RabbitSearchForPillState.h" />

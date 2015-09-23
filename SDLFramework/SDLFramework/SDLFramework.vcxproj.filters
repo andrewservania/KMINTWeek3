@@ -80,6 +80,9 @@
     <ClCompile Include="RabbitSearchForWeaponState.cpp">
       <Filter>Source Files\States</Filter>
     </ClCompile>
+    <ClCompile Include="ProbabilityDistribution.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="SDL2.dll" />
@@ -149,6 +152,9 @@
       <Filter>Header Files\States</Filter>
     </ClInclude>
     <ClInclude Include="RabbitSearchForPillState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProbabilityDistribution.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

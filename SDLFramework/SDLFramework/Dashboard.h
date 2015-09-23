@@ -16,6 +16,10 @@ private:
 	 static std::string comment6;
 	
 
+	 static std::string choice1Probability;
+	 static std::string choice2Probability;
+	 static std::string choice3Probability;
+
 public:
 
 	Dashboard();
@@ -33,6 +37,10 @@ public:
 	void ShortestPathLabel(std::string val) { shortestPathLabel = val; }
 	void CowStateLabel(std::string val) { cowStateLabel = "Cow State: " + val; }
 	void RabbitStateLabel(std::string val) { rabbitStateLabel = "Rabbit state: " + val; }
+
+	void SetChoice1Probablity(int val) { choice1Probability = "Choice 1 - Search For Weapon - Chance: " + std::to_string(val) + "%"; }
+	void SetChoice2Probablity(int val) { choice2Probability = "Choice 2 - Search For Pill -  Chance: " + std::to_string(val) + "%"; }
+	void SetChoice3Probablity(int val) { choice3Probability = "Choice 3 - Flee From Cow -  Chance: " + std::to_string(val) + "%"; }
 
 	static Dashboard* Instance()
 	{
