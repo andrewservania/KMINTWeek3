@@ -19,6 +19,7 @@ std::string Dashboard::choice1Probability;
 std::string Dashboard::choice2Probability;
 std::string Dashboard::choice3Probability;
 
+std::string Dashboard::cowSleepingTurns;
 using namespace std;
 
 Dashboard::Dashboard()
@@ -35,6 +36,8 @@ Dashboard::Dashboard()
 	SetChoice1Probablity(ProbabilityDistribution::Instance()->GetChoice1Probability());
 	SetChoice2Probablity(ProbabilityDistribution::Instance()->GetChoice2Probability());
 	SetChoice3Probablity(ProbabilityDistribution::Instance()->GetChoice3Probability());
+
+	cowSleepingTurns = "Cow Sleeping Turns: 0";
 }
 
 
@@ -71,6 +74,7 @@ void Dashboard::Update()
 	FWApplication::GetInstance()->DrawText(choice2Probability, 300, 460);
 	FWApplication::GetInstance()->DrawText(choice3Probability, 300, 480);
 
+	FWApplication::GetInstance()->DrawText(cowSleepingTurns, 300, 500);
 
 
 }
