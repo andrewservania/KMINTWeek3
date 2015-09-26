@@ -26,6 +26,4 @@ public:
 		static RabbitSearchForWeaponState instance;
 		return &instance;
 	}
-
 };
-

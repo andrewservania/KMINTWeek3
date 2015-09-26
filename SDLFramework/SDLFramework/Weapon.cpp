@@ -6,7 +6,7 @@ Weapon::Weapon()
 {
 	mTexture = mApplication->LoadTexture("gun-metal.png");
 
-	// Put the weapon at a random location as long as its not at the same location 
+	// Put the weapon at a random location as long as its not at the same location
 	// as the cow or rabbit
 	SetCurrentNode(Graph::graphNodes.at(rand() % Graph::graphNodes.size()));
 
@@ -16,7 +16,6 @@ Weapon::Weapon()
 
 	mApplication->AddRenderable(this);
 }
-
 
 Weapon::~Weapon()
 {
@@ -37,7 +36,7 @@ void Weapon::Update(float deltaTime)
 
 void Weapon::Draw()
 {
-	mApplication->DrawTexture(mTexture, mX,mY, 50, 50);
+	mApplication->DrawTexture(mTexture, mX, mY, 50, 50);
 };
 
 // Put the weapon at a new location
@@ -53,5 +52,5 @@ void Weapon::PutOnRandomLocation()
 	while (Graph::cow->getCurrentNode()->id == currentNode->id ||
 		Graph::rabbit->getCurrentNode()->id == currentNode->id ||
 		Graph::pill->GetCurrentNode()->id == currentNode->id)
-	SetCurrentNode(Graph::graphNodes.at(rand() % Graph::graphNodes.size()));
+		SetCurrentNode(Graph::graphNodes.at(rand() % Graph::graphNodes.size()));
 }

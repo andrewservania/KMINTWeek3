@@ -1,9 +1,9 @@
 #pragma once
 class ProbabilityDistribution
 {
-	private:
+private:
 	// Probability is in percentages
-	const int totalProbability = 100; 
+	const int totalProbability = 100;
 	const int minimumProbabilityPerChoice = 10;
 
 	int currentTotalProbability;
@@ -17,8 +17,6 @@ public:
 	void IncreaseChoice1Probability();
 	void IncreaseChoice2Probability();
 	void IncreaseChoice3Probability();
-
-
 
 	ProbabilityDistribution();
 	~ProbabilityDistribution();
@@ -35,4 +33,3 @@ public:
 		return &instance;
 	}
 };
-

@@ -11,6 +11,7 @@ class CowChaseRabbitState :
 {
 private:
 	int stepTimer;
+	int counter;
 	std::stack<Node*> shortestPath;
 	bool pathIsCalculated;
 	void UpdateShortestPathLabel(std::stack<Node*> _shortestPath);
@@ -28,6 +29,4 @@ public:
 		static CowChaseRabbitState instance;
 		return &instance;
 	}
-
 };
-

@@ -7,7 +7,6 @@ BaseGameEntity::BaseGameEntity(int id)
 	SetID(id);
 }
 
-
 BaseGameEntity::~BaseGameEntity()
 {
 }
@@ -19,5 +18,4 @@ void BaseGameEntity::SetID(int val)
 		id = val;
 		nextValidID++;
 	}
-
 }

@@ -24,4 +24,3 @@ public:
 	std::string GetCurrentState() { return stateMachine->CurrentState()->GetStateName(); }
 	void PutOnRandomLocation();
 };
-

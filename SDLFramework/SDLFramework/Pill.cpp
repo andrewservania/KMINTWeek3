@@ -26,7 +26,7 @@ void Pill::Update(float deltaTime)
 	{
 		if (Graph::rabbit->GetCurrentState() == "Search For Pill")
 		{
-		    Graph::rabbit->GetFSM()->ChangeState(RabbitWanderingState::Instance());
+			Graph::rabbit->GetFSM()->ChangeState(RabbitWanderingState::Instance());
 			Graph::rabbit->pickedUpPill = true;
 			PutOnRandomLocation();
 		}
@@ -56,5 +56,4 @@ void Pill::PutOnRandomLocation()
 		Graph::rabbit->getCurrentNode()->id == currentNode->id ||
 		Graph::weapon->GetCurrentNode()->id == currentNode->id)
 		SetCurrentNode(Graph::graphNodes.at(rand() % Graph::graphNodes.size()));
-
 }

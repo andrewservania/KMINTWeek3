@@ -10,4 +10,3 @@ public:
 	virtual std::string GetStateName() = 0;
 	virtual ~State(){}
 };
-

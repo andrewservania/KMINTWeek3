@@ -40,7 +40,6 @@ Dashboard::Dashboard()
 	cowSleepingTurns = "Cow Sleeping Turns: 0";
 }
 
-
 Dashboard::~Dashboard()
 {
 }
@@ -74,7 +73,6 @@ void Dashboard::Update()
 	FWApplication::GetInstance()->DrawText(choice2Probability, 300, 460);
 	FWApplication::GetInstance()->DrawText(choice3Probability, 300, 480);
 
+	// Cow sleeping turn
 	FWApplication::GetInstance()->DrawText(cowSleepingTurns, 300, 500);
-
-
 }

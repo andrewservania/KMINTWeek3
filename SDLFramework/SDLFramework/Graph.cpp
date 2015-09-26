@@ -14,7 +14,6 @@ Weapon* Graph::weapon;
 
 Graph::Graph(FWApplication* _application)
 {
-
 	// Create nodes
 	node1 = new Node(1);
 	node2 = new Node(2);
@@ -60,14 +59,13 @@ Graph::Graph(FWApplication* _application)
 	graphNodes.push_back(node7);
 	graphNodes.push_back(node8);
 
-	rabbit = new Rabbit(1);												// 1) Create a rabbit 
+	rabbit = new Rabbit(1);												// 1) Create a rabbit
 	pill = new Pill();													// 2) Create a pill at a random location
 	weapon = new Weapon();												// 3) Create a weapon at a random location
 	cow = new Cow(2);													// 4) Create a cow
-																		// NOTE: If one wants to change the order of creation of game entities, then the respawn checks declared
-																		//		 within their constructors must be adapted in order to keep making sure that none of the entities
-																		//       respawn on the same location.
-
+	// NOTE: If one wants to change the order of creation of game entities, then the respawn checks declared
+	//		 within their constructors must be adapted in order to keep making sure that none of the entities
+	//       respawn on the same location.
 
 	UpdateShortPathDescription();										// Update the shortest path label with the shortest path based on the cow and rabbit's current node
 }
@@ -75,7 +73,6 @@ Graph::Graph(FWApplication* _application)
 Graph::~Graph()
 {
 }
-
 
 // Calculate and shortest path from the cow to the rabbit and update the shortest path label on the screen
 void Graph::UpdateShortPathDescription()
@@ -91,7 +88,7 @@ void Graph::UpdateShortPathDescription()
 
 		shortestPath.pop();
 		if (!shortestPath.empty())
-			shortestPathLabel += " -> ";		
+			shortestPathLabel += " -> ";
 	}
 
 	Dashboard::Instance()->ShortestPathLabel(shortestPathLabel);

@@ -4,7 +4,6 @@ using namespace std;
 
 AStar::AStar()
 {
-
 }
 
 AStar::~AStar()
@@ -42,20 +41,20 @@ stack<Node*> AStar::GetShortestPath(Node* start, Node* goal)
 			if (find(closedList.begin(), closedList.end(), next) != closedList.end())			// If the 'next' node is found, then continue
 				continue;
 
-			float g_Cost = static_cast<float>(current->g_distance_to_source + 
+			float g_Cost = static_cast<float>(current->g_distance_to_source +
 				current->GetEdges()[i]->weight);												// Calculate the G cost for the current node by
-																								// adding the distance to source along with the weight of the edge
+			// adding the distance to source along with the weight of the edge
 
 			if (openList.find(next) == openList.end() || g_Cost < next->g_distance_to_source)	// If the next node is the same as the last one in the open list OR
 			{																					// if the G cost is smaller than the distance to the source, then
 				cameFrom[next->id] = current;													// log what the last node was,
 
 				if (openList.find(next) != openList.end())										// try to find the next node in the open list and erase it,
-					openList.erase(next);														
+					openList.erase(next);
 
 				next->g_distance_to_source = g_Cost;											// Set the G Cost for the next node,
 				next->f_totalDistance = next->g_distance_to_source + CalculateH(next, goal);    // Calculate and set the F value by adding the G value and the H value
-																								// using the next node and the target node.
+				// using the next node and the target node.
 
 				openList.insert(next);															// insert the next node in the open list
 			}
@@ -76,7 +75,7 @@ stack<Node*> AStar::ReconstructPath(Node* current)
 	totalPath.push(current);
 
 	int id = current->id;
-	while (cameFrom[id] !=nullptr)
+	while (cameFrom[id] != nullptr)
 	{
 		Node* previous = cameFrom[id];
 		totalPath.push(previous);

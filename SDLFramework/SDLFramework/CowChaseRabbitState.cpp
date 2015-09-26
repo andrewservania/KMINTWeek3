@@ -10,14 +10,14 @@ using namespace std;
 CowChaseRabbitState::CowChaseRabbitState()
 {
 	pathIsCalculated = false;
-
+	counter = 0;
 }
-
 
 CowChaseRabbitState::~CowChaseRabbitState()
 {
 }
 
+// Calculate the shortest path between the rabbit and the cow
 void CowChaseRabbitState::Enter(Cow* cow)
 {
 	stepTimer = 0;
@@ -28,31 +28,27 @@ void CowChaseRabbitState::Enter(Cow* cow)
 	//UpdateShortestPathLabel(Graph::cow, Graph::rabbit);
 }
 
-int counter = 0;
+// Cow walks towards the node on which the rabbit is standing on
 void CowChaseRabbitState::Execute(Cow* cow)
 {
 	CalculateNewPath();
 
-
-
-
 	//if (stepTimer == 25)
 	//{
-		if (!shortestPath.empty())					// If shortest path is empty, then go to the goal node step by step
-		{
-			cow->setCurrentNode(shortestPath.top()); // Cow will walk to the top next node
-			shortestPath.pop();						 // Now remove the top next node
-			stepTimer = 0;
-			
-		}
-		else {
-				pathIsCalculated = false;
-		}
+	if (!shortestPath.empty())					 // If shortest path is empty, then go to the goal node step by step
+	{
+		cow->setCurrentNode(shortestPath.top()); // Cow will walk to the top next node
+		shortestPath.pop();						 // Now remove the top next node
+		stepTimer = 0;
+	}
+	else {
+		pathIsCalculated = false;
+	}
 	//}
-
 	//stepTimer++;
 }
 
+//  Calculate the shortest path between the rabbit and the cow as the rabbit moves around
 void CowChaseRabbitState::CalculateNewPath()
 {
 	// If path has already been calculated, do not calculate again in order to save on processor overhead
@@ -67,7 +63,6 @@ void CowChaseRabbitState::CalculateNewPath()
 		UpdateShortestPathLabel(shortestPath);
 		pathIsCalculated = true;
 	}
-
 }
 
 void CowChaseRabbitState::Exit(Cow* cow)

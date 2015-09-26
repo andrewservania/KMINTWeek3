@@ -11,7 +11,6 @@ RabbitSearchForPillState::RabbitSearchForPillState()
 	rabbitStartedSearching = false;
 }
 
-
 RabbitSearchForPillState::~RabbitSearchForPillState()
 {
 }
@@ -27,38 +26,34 @@ void RabbitSearchForPillState::StartSearchingForPill(Rabbit* rabbit)
 	}
 }
 
-
-
 void RabbitSearchForPillState::Enter(Rabbit* rabbit)
 {
 	stepTimer = 0;
 	shared_ptr<AStar> astar = make_shared<AStar>();
 	shortestPath = astar->GetShortestPath(rabbit->getCurrentNode(), Graph::pill->GetCurrentNode());
 
-//	UpdateShortestPathLabel(shortestPath);
+	//	UpdateShortestPathLabel(shortestPath);
 }
 
 void RabbitSearchForPillState::Execute(Rabbit* rabbit)
 {
 	StartSearchingForPill(rabbit);
-//	if (stepTimer == 50)
-//	{
-		if (!shortestPath.empty())					 // If shortest path is empty, then go to the goal node step by step
-		{
-			rabbit->setCurrentNode(shortestPath.top()); // Cow will walk to the top next node
-			shortestPath.pop();						 // Now remove the top next node
-			stepTimer = 0;
-		}
-//	}
+	//	if (stepTimer == 50)
+	//	{
+	if (!shortestPath.empty())					 // If shortest path is empty, then go to the goal node step by step
+	{
+		rabbit->setCurrentNode(shortestPath.top()); // Cow will walk to the top next node
+		shortestPath.pop();						 // Now remove the top next node
+		stepTimer = 0;
+	}
+	//	}
 
-//	stepTimer++;
+	//	stepTimer++;
 }
 
 void RabbitSearchForPillState::Exit(Rabbit* rabbit)
 {
 }
-
-
 
 void RabbitSearchForPillState::UpdateShortestPathLabel(stack<Node*> _shortestPath)
 {

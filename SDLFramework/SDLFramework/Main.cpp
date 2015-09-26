@@ -7,10 +7,9 @@
 #include "Graph.h"
 #include "Dashboard.h"
 
-
 int main(int args[])
 {
-	srand(static_cast<unsigned int>(time(nullptr)));						// initialize random seed 
+	srand(static_cast<unsigned int>(time(nullptr)));						// initialize random seed
 
 	auto application = new FWApplication();
 	if (!application->GetWindow())
@@ -18,7 +17,7 @@ int main(int args[])
 		LOG("Couldn't create window...");
 		return EXIT_FAILURE;
 	}
-	
+
 	application->SetTargetFPS(90);
 
 	auto graph = new Graph(application);									// Create a graph
@@ -34,28 +33,27 @@ int main(int args[])
 		{
 			switch (event.type)
 			{
-				case SDL_QUIT:
-					application->Quit();
-					break;
-				case SDL_KEYDOWN:
+			case SDL_QUIT:
+				application->Quit();
+				break;
+			case SDL_KEYDOWN:
 
 				switch (event.key.keysym.sym){
-
-					case SDLK_0:
+				case SDLK_0:
 
 					break;
 
-					default:
+				default:
 
-						break;
+					break;
 				}
 				break;
-				case SDL_MOUSEBUTTONDOWN:				
-					graph->cow->OnClick(event);								// Handle mouse clicks for the cow
-					break;
+			case SDL_MOUSEBUTTONDOWN:
+				graph->cow->OnClick(event);								// Handle mouse clicks for the cow
+				break;
 			}
 		}
-		
+
 		application->SetColor(Color(0, 0, 0, 255));							// White color
 		dashboard->Update();
 		// For the background
@@ -64,9 +62,6 @@ int main(int args[])
 		application->RenderGameObjects();
 		application->EndTick();
 	}
-		
+
 	return EXIT_SUCCESS;
 }
-
-
-

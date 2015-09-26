@@ -10,7 +10,6 @@
 
 FWApplication * FWApplication::mInstance;
 
-
 FWApplication::FWApplication(int offsetX, int offsetY, int width, int height)
 	: mTargetDelayMS(1000 / 60),
 	mStartCycleTimeMS(0),
@@ -64,11 +63,9 @@ FWApplication::FWApplication(int offsetX, int offsetY, int width, int height)
 	SetFontSize(12);
 	SetFont("OpenSans-Regular.ttf");
 
-
 	mInstance = this;
 	mGameObjects.reserve(32);
 }
-
 
 FWApplication::~FWApplication()
 {
@@ -239,12 +236,11 @@ void FWApplication::DrawRect(int startPosX, int startPosY, int width, int height
 	}
 }
 
-
 //void FWApplication::DrawEllipse(int offsetX, int offsetY, int width, int height, bool fill)
 //{
 //	////
 //	//// http://sdl-draw.sourceforge.net/
-//	//// 
+//	////
 //
 //	SDL_Rect rect = { offsetX, offsetY, width, height };
 //
@@ -309,7 +305,7 @@ void FWApplication::DrawRect(int startPosX, int startPosY, int width, int height
 //	while (StoppingX < StoppingY)
 //	{
 //		SDL_RenderDrawPoint(mRenderer, x, y);
-//		
+//
 //		++x;
 //		StoppingX += TwoBSquare;
 //		EllipseError += Xchange;
@@ -378,7 +374,6 @@ void FWApplication::Quit()
 {
 	mIsRunning = false;
 }
-
 
 //void FWApplication::AddOnEvent(std::function<void(SDL_Event*)> func)
 //{

@@ -26,6 +26,4 @@ public:
 	Graph(FWApplication* _application);
 	~Graph();
 	static void UpdateShortPathDescription();
-
 };
-

@@ -10,10 +10,8 @@ using namespace std;
 // My sincere apologies to any statisticians ,computer-math scientists, scientific software engineers.
 // I stand open to all your expert feedback. :)
 
-
 ProbabilityDistribution::ProbabilityDistribution()
 {
-
 	currentTotalProbability = totalProbability;
 	choice1Probability = 40;  // percent
 	choice2Probability = 30;  // percent
@@ -21,7 +19,6 @@ ProbabilityDistribution::ProbabilityDistribution()
 
 	assert((choice1Probability + choice2Probability + choice3Probability) == 100 && "The probability numbers are incorrect. Make sure the choice percentages equal 100% and 100% only.");
 	UpdateProbabilityLabels();
-
 }
 
 ProbabilityDistribution::~ProbabilityDistribution()
@@ -41,8 +38,7 @@ int ProbabilityDistribution::GenerateRandomChoice()
 
 void ProbabilityDistribution::IncreaseChoice1Probability()
 {
-
-	if (choice1Probability != totalProbability - 2* minimumProbabilityPerChoice)
+	if (choice1Probability != totalProbability - 2 * minimumProbabilityPerChoice)
 	{
 		if (choice1Probability == totalProbability - minimumProbabilityPerChoice - 1)
 		{
@@ -58,7 +54,7 @@ void ProbabilityDistribution::IncreaseChoice1Probability()
 		}
 		else
 		{
-			choice1Probability+=2;
+			choice1Probability += 2;
 			currentTotalProbability = choice1Probability + choice2Probability + choice3Probability;
 			if (currentTotalProbability > 100)
 			{
@@ -75,7 +71,6 @@ void ProbabilityDistribution::IncreaseChoice1Probability()
 						}
 					}
 					else if (choice3Probability == minimumProbabilityPerChoice){
-
 						if (choice2Probability == minimumProbabilityPerChoice + 1)
 						{
 							choice2Probability -= 1;
@@ -102,9 +97,8 @@ void ProbabilityDistribution::IncreaseChoice1Probability()
 
 void ProbabilityDistribution::IncreaseChoice2Probability()
 {
-	if (choice2Probability != totalProbability - 2* minimumProbabilityPerChoice)
-	{	
-
+	if (choice2Probability != totalProbability - 2 * minimumProbabilityPerChoice)
+	{
 		if (choice2Probability == totalProbability - minimumProbabilityPerChoice - 1)
 		{
 			if (choice1Probability > minimumProbabilityPerChoice)
@@ -135,7 +129,6 @@ void ProbabilityDistribution::IncreaseChoice2Probability()
 						else{
 							choice3Probability -= 2;
 						}
-					
 					}
 					else if (choice3Probability == minimumProbabilityPerChoice){
 						if (choice1Probability == minimumProbabilityPerChoice + 1) // To avoid minus values when choice1 = 99, choice2 = 0 and choice3 = 1 and being threatened withing getting -1% as value
@@ -160,16 +153,13 @@ void ProbabilityDistribution::IncreaseChoice2Probability()
 		}
 		UpdateProbabilityLabels();
 	}
-
-
 }
 
 void ProbabilityDistribution::IncreaseChoice3Probability()
 {
-
-	if (choice3Probability != totalProbability - 2* minimumProbabilityPerChoice)
+	if (choice3Probability != totalProbability - 2 * minimumProbabilityPerChoice)
 	{
-		if (choice3Probability == totalProbability - minimumProbabilityPerChoice -1)
+		if (choice3Probability == totalProbability - minimumProbabilityPerChoice - 1)
 		{
 			if (choice2Probability > minimumProbabilityPerChoice)
 			{
@@ -182,9 +172,7 @@ void ProbabilityDistribution::IncreaseChoice3Probability()
 			choice3Probability++;
 		}
 		else{
-
 			choice3Probability += 2;
-			
 
 			currentTotalProbability = choice1Probability + choice2Probability + choice3Probability;
 			if (currentTotalProbability > 100)
@@ -200,7 +188,6 @@ void ProbabilityDistribution::IncreaseChoice3Probability()
 						else{
 							choice2Probability -= 2;
 						}
-			
 					}
 					else if (choice2Probability == minimumProbabilityPerChoice){
 						if (choice1Probability == minimumProbabilityPerChoice + 1) // To avoid minus values when choice1 = 99, choice2 = 0 and choice3 = 1 and being threatened withing getting -1% as value
@@ -234,4 +221,3 @@ void ProbabilityDistribution::UpdateProbabilityLabels()
 	Dashboard::Instance()->SetChoice2Probablity(choice2Probability);
 	Dashboard::Instance()->SetChoice3Probablity(choice3Probability);
 }
-

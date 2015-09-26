@@ -20,10 +20,9 @@ private:
 public:
 
 	StateMachine(T* owner) : owner(owner),
-							 currentState(nullptr),
-							 previousState(nullptr),
-							 globalState(nullptr){}
-
+		currentState(nullptr),
+		previousState(nullptr),
+		globalState(nullptr){}
 
 	// Use these methods to initialize the FSM
 	void SetCurrentState(State<T>* s) { currentState = s; }
@@ -73,4 +72,3 @@ public:
 	// class passed as a parameter
 	bool isInState(const State<T>& st) const;
 };
-

@@ -6,7 +6,7 @@ class CowSleepingState :
 	public State<Cow>
 {
 public:
-	int turn ;
+	int turn;
 	int counter;
 	CowSleepingState();
 	~CowSleepingState();
@@ -21,4 +21,3 @@ public:
 		return &instance;
 	}
 };
-

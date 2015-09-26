@@ -16,4 +16,3 @@ public:
 	Node* GetCurrentNode() { return currentNode; }
 	void PutOnRandomLocation();
 };
-
