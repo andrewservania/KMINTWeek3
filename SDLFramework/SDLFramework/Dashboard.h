@@ -14,6 +14,15 @@ private:
 	static std::string comment4;
 	static std::string comment5;
 	static std::string comment6;
+	static std::string comment7;
+	static std::string comment8;
+	static std::string comment9;
+	static std::string comment10;
+	static std::string comment11;
+	static std::string comment12;
+	static std::string comment13;
+
+
 	static std::string choice1Probability;
 	static std::string choice2Probability;
 	static std::string choice3Probability;

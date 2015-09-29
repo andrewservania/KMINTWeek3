@@ -25,14 +25,14 @@ Graph::Graph(FWApplication* _application)
 	node8 = new Node(8);
 
 	// Set their position on screen
-	node1->SetOffset(800, 450);
-	node2->SetOffset(500, 400);
-	node3->SetOffset(600, 100);
-	node4->SetOffset(730, 240);
-	node5->SetOffset(900, 100);
-	node6->SetOffset(930, 400);
-	node7->SetOffset(1050, 550);
-	node8->SetOffset(1050, 300);
+	node1->SetOffset(900, 450);
+	node2->SetOffset(600, 400);
+	node3->SetOffset(700, 100);
+	node4->SetOffset(830, 240);
+	node5->SetOffset(1000, 100);
+	node6->SetOffset(1030, 400);
+	node7->SetOffset(1150, 550);
+	node8->SetOffset(1150, 300);
 
 	// Connect nodes with edges and add weight to the edges
 	node1->AddEdge(node2, 10000);

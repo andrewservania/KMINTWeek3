@@ -22,3 +22,7 @@ Tasks for today: 23 sept - 2015
 - Implement effects of pill and weapon on cow
 - Create turns (1 turn is 1 step being done by the cow and the rabbit at the same time)
 - Implement rabbit wandering
+
+Tasks for 29th of September
+- Move the rabbit's state choice mechanism to the state machine if it's possible. (More Logical)
+- Add proper comments to the application
