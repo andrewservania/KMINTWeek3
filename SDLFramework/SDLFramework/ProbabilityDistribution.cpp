@@ -10,12 +10,23 @@ using namespace std;
 // My sincere apologies to any statisticians ,computer-math scientists, scientific software engineers.
 // I stand open to all your expert feedback. :)
 
-ProbabilityDistribution::ProbabilityDistribution()
+
+ProbabilityDistribution::ProbabilityDistribution() : choice1Probability(40), // percent
+													 choice2Probability(30), // percent
+													 choice3Probability(30)  // percent
 {
 	currentTotalProbability = totalProbability;
-	choice1Probability = 40;  // percent
-	choice2Probability = 30;  // percent
-	choice3Probability = 30;  // percent
+	assert((choice1Probability + choice2Probability + choice3Probability) == 100 && "The probability numbers are incorrect. Make sure the choice percentages equal 100% and 100% only.");
+	UpdateProbabilityLabels();
+}
+
+
+ProbabilityDistribution::ProbabilityDistribution(int probabilityChoice1, int probabilityChoice2, int probabilityChoice3)
+{
+	currentTotalProbability = totalProbability;
+	choice1Probability = probabilityChoice1;
+	choice2Probability = probabilityChoice2;
+	choice3Probability = probabilityChoice3;
 
 	assert((choice1Probability + choice2Probability + choice3Probability) == 100 && "The probability numbers are incorrect. Make sure the choice percentages equal 100% and 100% only.");
 	UpdateProbabilityLabels();

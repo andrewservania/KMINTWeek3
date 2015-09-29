@@ -19,6 +19,7 @@ public:
 	void IncreaseChoice3Probability();
 
 	ProbabilityDistribution();
+	ProbabilityDistribution(int probabilityChoice1, int probabilityChoice2, int probabilityChoice3);
 	~ProbabilityDistribution();
 	int GenerateRandomChoice();
 

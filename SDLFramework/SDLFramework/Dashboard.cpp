@@ -54,17 +54,17 @@ Dashboard::Dashboard()
 	comment3 = "'Fleeing', 'Search For Weapon' or Search For Pill.'";
 
 
-	comment4 = "If the rabbit chooses to 'Search For a Pill it uses the A*star path-finding algorithm to find the shortest path";
-	comment5 = "to the pill. If the cow reaches the rabbit, the cow goes in a 'Sleeping' state for 5 turns and rabbit 'Flee's";
-	comment6 = "to safety. If the rabbit chooses to 'Search For a Weapon' it uses A*star as well to search for a weapon.";
-	comment7 = "After picking up the weapon, if the cow reaches a neighboring node of rabbit. ";
-	comment8 = "The cow gets 'blown' away to a random location.  ";
-	comment9 = "The pill and the weapon always  respawn on an emptynode.";
+	comment4 = "If the rabbit chooses to 'Search For a Pill' it uses the A*star path-finding algorithm to find the";
+	comment5 = "shortest path to the pill. If the cow reaches the rabbit, the cow goes in a 'Sleeping' state for 5 turns";
+	comment6 = "and the rabbit  'Flees' to safety. If the rabbit chooses to 'Search For a Weapon', whenever ";
+	comment7 = "the cow reaches a neighboring node of the rabbit, the cow gets 'blown' away to a random location.";
+	comment8 = "The rabbit uses A*star as well to search for a weapon. The pill and the weapon ";
+	comment9 = "always  respawn on an empty node. If the rabbit chooses to 'Flee'. It jumps to a random node.";
 
-	comment10 = "The probability of a state being chosen depends on the probability percentage assigned to";
+	comment10 = "The probability of a state being chosen simply depends on the probability percentage assigned to";
 	comment11 = "a given state. Initially 'Fleeing' has a 30% chance of being chosen. Search For Weapon has 40%";
-	comment12 = "and 'Search For Pill' has 30%. A states probability is increased by 2% evertime it is chosen.";
-	comment13 = "If the rabbit chooses to 'Flee'. It jumps to a random node.";
+	comment12 = "and 'Search For Pill' has 30%. A state's probability is increased by 2% evertime it is chosen.";
+	comment13 = "The minimum percentage for each state is 10%. and the maximum is 80%.";
 
 
   //comment6 = "-------------------------------------------------------------------------------------------";
@@ -90,16 +90,16 @@ void Dashboard::Update()
 	FWApplication::GetInstance()->DrawText(comment1, 300, 100);
 	FWApplication::GetInstance()->DrawText(comment2, 300, 120);
 	FWApplication::GetInstance()->DrawText(comment3, 300, 140);
-	FWApplication::GetInstance()->DrawText(comment4, 300, 160);
-	FWApplication::GetInstance()->DrawText(comment5, 300, 180);
-	FWApplication::GetInstance()->DrawText(comment6, 300, 200);
+	FWApplication::GetInstance()->DrawText(comment4, 300, 180);
+	FWApplication::GetInstance()->DrawText(comment5, 300, 200);
+	FWApplication::GetInstance()->DrawText(comment6, 300, 220);
 	FWApplication::GetInstance()->DrawText(comment7, 300, 240);
 	FWApplication::GetInstance()->DrawText(comment8, 300, 260);
 	FWApplication::GetInstance()->DrawText(comment9, 300, 280);
-	FWApplication::GetInstance()->DrawText(comment10, 300, 300);
-	FWApplication::GetInstance()->DrawText(comment11, 300, 320);
-	FWApplication::GetInstance()->DrawText(comment12, 300, 340);
-	FWApplication::GetInstance()->DrawText(comment13, 300, 360);
+	FWApplication::GetInstance()->DrawText(comment10, 300, 320);
+	FWApplication::GetInstance()->DrawText(comment11, 300, 340);
+	FWApplication::GetInstance()->DrawText(comment12, 300, 360);
+	FWApplication::GetInstance()->DrawText(comment13, 300, 380);
 
 	// Cow state label
 	CowStateLabel(Graph::cow->GetCurrentState());
