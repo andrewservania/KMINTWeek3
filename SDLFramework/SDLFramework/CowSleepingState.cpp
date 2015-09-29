@@ -18,7 +18,7 @@ void CowSleepingState::Enter(Cow* cow)
 // Make the cow 'sleep' on a node for 5 'turns'
 void CowSleepingState::Execute(Cow* cow)
 {
-	if (counter == 2)
+	if (counter == 50)
 	{
 		turn++;
 		Dashboard::Instance()->SetCowSleepingTurns(turn);

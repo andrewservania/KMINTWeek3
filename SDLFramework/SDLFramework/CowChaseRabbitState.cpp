@@ -25,7 +25,6 @@ void CowChaseRabbitState::Enter(Cow* cow)
 	shortestPath = astar->GetShortestPath(Graph::cow->getCurrentNode(), Graph::rabbit->getCurrentNode());
 
 	UpdateShortestPathLabel(shortestPath);
-	//UpdateShortestPathLabel(Graph::cow, Graph::rabbit);
 }
 
 // Cow walks towards the node on which the rabbit is standing on
@@ -33,19 +32,19 @@ void CowChaseRabbitState::Execute(Cow* cow)
 {
 	CalculateNewPath();
 
-	//if (stepTimer == 25)
-	//{
-	if (!shortestPath.empty())					 // If shortest path is empty, then go to the goal node step by step
+	if (stepTimer == 25)
 	{
-		cow->setCurrentNode(shortestPath.top()); // Cow will walk to the top next node
-		shortestPath.pop();						 // Now remove the top next node
-		stepTimer = 0;
+		if (!shortestPath.empty())					 // If shortest path is empty, then go to the goal node step by step
+		{
+			cow->setCurrentNode(shortestPath.top()); // Cow will walk to the top next node
+			shortestPath.pop();						 // Now remove the top next node
+			stepTimer = 0;
+		}
+		else {
+			pathIsCalculated = false;
+		}
 	}
-	else {
-		pathIsCalculated = false;
-	}
-	//}
-	//stepTimer++;
+	stepTimer++;
 }
 
 //  Calculate the shortest path between the rabbit and the cow as the rabbit moves around

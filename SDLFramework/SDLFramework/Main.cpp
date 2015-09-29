@@ -18,7 +18,7 @@ int main(int args[])
 		return EXIT_FAILURE;
 	}
 
-	application->SetTargetFPS(90);
+	application->SetTargetFPS(60);
 
 	auto graph = new Graph(application);									// Create a graph
 	auto dashboard = new Dashboard();										// To show some statistics such as shortestPath, Cow state and rabbit state

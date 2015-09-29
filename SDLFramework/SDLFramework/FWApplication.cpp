@@ -187,7 +187,7 @@ void FWApplication::UpdateGameObjects()
 				}
 			}
 		}
-		SDL_Delay(1000 / mFPS);
+		//SDL_Delay(1000 / mFPS);
 		obj->Update((float)mDeltaTimeMS / 1000.0f);
 	}
 }
