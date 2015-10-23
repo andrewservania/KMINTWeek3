@@ -6,10 +6,23 @@
 
 using namespace std;
 
-// A class created to distribute probability among three choices in the most amateuristic way possible.
-// My sincere apologies to any statisticians ,computer-math scientists, scientific software engineers.
-// I stand open to all your expert feedback. :)
-
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>
+/// A class created to distribute probability among three choices in the most amateuristic way
+/// possible. My sincere apologies to any statisticians ,computer-math scientists, scientific
+/// software engineers. I stand open to all your expert feedback. :)
+/// 
+/// Create a probability distribution object that can distribute the probability percentage
+/// between 3 choices. These 3 choices get the following probability distribution by default
+/// Choice 1 40% 
+/// Choice 2 30%
+/// Choice 3 30%
+/// 
+/// The method
+/// </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ProbabilityDistribution::ProbabilityDistribution() : choice1Probability(40), // percent
 													 choice2Probability(30), // percent
@@ -20,6 +33,30 @@ ProbabilityDistribution::ProbabilityDistribution() : choice1Probability(40), // 
 	UpdateProbabilityLabels();
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Destructor. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ProbabilityDistribution::~ProbabilityDistribution()
+{
+}
+
+/// <summary>	Constructor. 
+/// 			
+/// 			Creates a probability distribution object that percentages custom-provided percentages
+/// 			The function checks in order to make sure that percentages ALWAYS sum up to 100 and 100 ONLY.
+/// 			
+/// 			</summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="probabilityChoice1">	The first probability choice. </param>
+/// <param name="probabilityChoice2">	The second probability choice. </param>
+/// <param name="probabilityChoice3">	The third probability choice. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ProbabilityDistribution::ProbabilityDistribution(int probabilityChoice1, int probabilityChoice2, int probabilityChoice3)
 {
@@ -32,9 +69,14 @@ ProbabilityDistribution::ProbabilityDistribution(int probabilityChoice1, int pro
 	UpdateProbabilityLabels();
 }
 
-ProbabilityDistribution::~ProbabilityDistribution()
-{
-}
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Generates a random choice (in the form an integer) based on the distributed 
+/// 			probabilities. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <returns>	The random choice. </returns>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int ProbabilityDistribution::GenerateRandomChoice()
 {
@@ -46,6 +88,13 @@ int ProbabilityDistribution::GenerateRandomChoice()
 
 	return 0; // If the random number does not fall within the above-declared ranges, return 0
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Increase choice 1 probability by 2% while making sure that a choice never gets a probability
+/// 			greater than 80% or lower than 10% </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void ProbabilityDistribution::IncreaseChoice1Probability()
 {
@@ -105,6 +154,13 @@ void ProbabilityDistribution::IncreaseChoice1Probability()
 		UpdateProbabilityLabels();
 	}
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Increase choice 2 probability by 2% while making sure that a choice never gets a 
+/// 			probability greater than 80% or lower than 10% </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void ProbabilityDistribution::IncreaseChoice2Probability()
 {
@@ -166,6 +222,13 @@ void ProbabilityDistribution::IncreaseChoice2Probability()
 	}
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Increase choice 3 probability by 2% while making sure that a choice never gets a
+/// 			probability greater than 80% or lower than 10% </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void ProbabilityDistribution::IncreaseChoice3Probability()
 {
 	if (choice3Probability != totalProbability - 2 * minimumProbabilityPerChoice)
@@ -225,6 +288,12 @@ void ProbabilityDistribution::IncreaseChoice3Probability()
 		UpdateProbabilityLabels();
 	}
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Updates the probability labels with the lastest probability values. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void ProbabilityDistribution::UpdateProbabilityLabels()
 {

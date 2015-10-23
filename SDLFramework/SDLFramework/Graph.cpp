@@ -6,11 +6,29 @@
 
 using namespace std;
 
+/// <summary>	The cow. </summary>
 Cow* Graph::cow;
+/// <summary>	The rabbit. </summary>
 Rabbit* Graph::rabbit;
+/// <summary>	The nodes. </summary>
 vector<Node*> Graph::graphNodes;
+/// <summary>	The pill. </summary>
 Pill* Graph::pill;
+/// <summary>	The weapon. </summary>
 Weapon* Graph::weapon;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Constructor.
+/// 			1) Create 8 nodes.  
+/// 			2) Set specific nodes as neighbors  
+/// 			3) Created egdes between these neighbors and give these edges a weight of 10000  
+/// 			4) Add these nodes to a vector future easy access.
+/// 			  </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="_application">	[in,out] If non-null, the application. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Graph::Graph(FWApplication* _application)
 {
@@ -59,22 +77,37 @@ Graph::Graph(FWApplication* _application)
 	graphNodes.push_back(node7);
 	graphNodes.push_back(node8);
 
-	rabbit = new Rabbit(1);												// 1) Create a rabbit
-	pill = new Pill();													// 2) Create a pill at a random location
-	weapon = new Weapon();												// 3) Create a weapon at a random location
-	cow = new Cow(2);													// 4) Create a cow
-	// NOTE: If one wants to change the order of creation of game entities, then the respawn checks declared
-	//		 within their constructors must be adapted in order to keep making sure that none of the entities
-	//       respawn on the same location.
-
-	UpdateShortPathDescription();										// Update the shortest path label with the shortest path based on the cow and rabbit's current node
+	// 1) Create a rabbit
+	rabbit = new Rabbit(1);												
+	// 2) Create a pill at a random location
+	pill = new Pill();													
+	// 3) Create a weapon at a random location
+	weapon = new Weapon();											
+	// 4) Create a cow
+	cow = new Cow(2);													
+	// Update the shortest path label with the shortest path based on the cow and rabbit's current node
+	UpdateShortPathDescription();										
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Destructor. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Graph::~Graph()
 {
 }
 
-// Calculate and shortest path from the cow to the rabbit and update the shortest path label on the screen
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>
+/// Calculate and shortest path from the cow to the rabbit and update the shortest path label on
+/// the screen.
+/// </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void Graph::UpdateShortPathDescription()
 {
 	shared_ptr<AStar> aStar = make_shared<AStar>();

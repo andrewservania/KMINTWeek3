@@ -2,6 +2,16 @@
 #include "Graph.h"
 #include "RabbitWanderingState.h"
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Default constructor. </summary>
+/// Create a pill by
+/// 1) Loading a picture of the pill  
+/// 2) Set the pill on node at random as long its not onthe same node as the rabbit, the cow, and  
+///    weapon
+/// 3) Add the pill to items that must be displayed on screen
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 Pill::Pill()
 {
 	mTexture = mApplication->LoadTexture("pill.png");
@@ -15,11 +25,27 @@ Pill::Pill()
 	mApplication->AddRenderable(this);
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Destructor. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 Pill::~Pill()
 {
 }
 
-// Check whether the cow has searching for the pill, if so make it chase the rabbit
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>
+/// If the rabbit is standing on the same node as the pill and the rabbit has been searching for a 
+/// pill, consume it go into a Wandering state.
+/// </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="deltaTime">	The delta time. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void Pill::Update(float deltaTime)
 {
 	if (Graph::rabbit->getCurrentNode()->id == currentNode->id)
@@ -33,13 +59,25 @@ void Pill::Update(float deltaTime)
 	}
 }
 
-// Draw the pill on screen
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Draw a picture of the pill on screen.</summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void Pill::Draw()
 {
 	mApplication->DrawTexture(mTexture, mX, mY, 50, 50);
 };
 
-// Put the pill at a new location
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Put the pill at a new location. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="newNode">	[in,out] If non-null, the new node. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void Pill::SetCurrentNode(Node* newNode)
 {
 	currentNode = newNode;
@@ -47,7 +85,15 @@ void Pill::SetCurrentNode(Node* newNode)
 	mY = currentNode->GetBoundingBox().y;
 }
 
-// Respawn the pill somewhere else, aslong its not at the same place as the cow, the rabbit or the weapon
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>
+/// Respawn the pill somewhere else, aslong its not at the same place as the cow, the rabbit or
+/// the weapon.
+/// </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void Pill::PutOnRandomLocation()
 {
 	SetCurrentNode(Graph::graphNodes.at(rand() % Graph::graphNodes.size()));

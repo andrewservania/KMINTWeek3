@@ -7,6 +7,20 @@
 #include "Graph.h"
 #include "Dashboard.h"
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Main entry-point for this application. 
+/// 			
+/// 			  Initialize SDL, the dashboard and all game entities.
+/// 			
+/// 			</summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="args">	Number of command-line arguments. </param>
+///
+/// <returns>	Exit-code for the process - 0 for success, else an error code. </returns>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 int main(int args[])
 {
 	srand(static_cast<unsigned int>(time(nullptr)));						// initialize random seed

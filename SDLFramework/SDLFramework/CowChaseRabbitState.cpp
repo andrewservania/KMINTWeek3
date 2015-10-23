@@ -7,17 +7,41 @@
 #include "Dashboard.h"
 using namespace std;
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Default constructor. 
+/// 			Set pathIsCalculated flag to false
+/// 			Set counter to zero.
+/// 			</summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 CowChaseRabbitState::CowChaseRabbitState()
 {
 	pathIsCalculated = false;
 	counter = 0;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Destructor. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 CowChaseRabbitState::~CowChaseRabbitState()
 {
 }
 
-// Calculate the shortest path between the rabbit and the cow
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Take action right after entering the state,
+/// 			Calculate the shortest path between the rabbit and the cow and show it on screen.
+/// 			 </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="cow">	[in,out] If non-null, the cow. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void CowChaseRabbitState::Enter(Cow* cow)
 {
 	stepTimer = 0;
@@ -27,7 +51,14 @@ void CowChaseRabbitState::Enter(Cow* cow)
 	UpdateShortestPathLabel(shortestPath);
 }
 
-// Cow walks towards the node on which the rabbit is standing on
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Cow walks towards the node on which the rabbit is standing on. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="cow">	[in,out] If non-null, the cow. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void CowChaseRabbitState::Execute(Cow* cow)
 {
 	CalculateNewPath();
@@ -47,11 +78,18 @@ void CowChaseRabbitState::Execute(Cow* cow)
 	stepTimer++;
 }
 
-//  Calculate the shortest path between the rabbit and the cow as the rabbit moves around
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>
+/// Calculate the shortest path between the rabbit and the cow as the rabbit moves around.
+/// </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void CowChaseRabbitState::CalculateNewPath()
 {
-	// If path has already been calculated, do not calculate again in order to save on processor overhead
-	// Also, do not calculate shortestpath if the cow has moved towards the rabbit and is already standing on the same node as
+	// If the shortest path has already been calculated, do not calculate again in order to save on processor load
+	// Also, do not calculate shortest path if the cow has moved towards the rabbit and is already standing on the same node as
 	// the rabbit. (Give the rabbit some time to move to a different location THEN calculate the shortestpath from cow to rabbit again.
 	if (!pathIsCalculated && Graph::cow->getCurrentNode()->id != Graph::rabbit->getCurrentNode()->id)
 	{
@@ -64,9 +102,25 @@ void CowChaseRabbitState::CalculateNewPath()
 	}
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Take action just before exiting the state </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="cow">	[in,out] If non-null, the cow. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void CowChaseRabbitState::Exit(Cow* cow)
 {
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Updates the shortest path label described by _shortestPath. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="_shortestPath">	[in,out] If non-null, full pathname of the shortest file. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void CowChaseRabbitState::UpdateShortestPathLabel(stack<Node*> _shortestPath)
 {

@@ -3,9 +3,13 @@
 #include "Graph.h"
 #include "ProbabilityDistribution.h"
 
+/// <summary>	Information describing the dashboard application. </summary>
 std::string Dashboard::applicationInformation;
+/// <summary>	The dashboard shortest path label. </summary>
 std::string Dashboard::shortestPathLabel;
+/// <summary>	The dashboard cow state label. </summary>
 std::string Dashboard::cowStateLabel;
+/// <summary>	The dashboard rabbit state label. </summary>
 std::string Dashboard::rabbitStateLabel;
 
 std::string Dashboard::comment1;
@@ -22,37 +26,31 @@ std::string Dashboard::comment11;
 std::string Dashboard::comment12;
 std::string Dashboard::comment13;
 
-
+/// <summary>	The dashboard choice 1 probability. </summary>
 std::string Dashboard::choice1Probability;
+/// <summary>	The dashboard choice 2 probability. </summary>
 std::string Dashboard::choice2Probability;
+/// <summary>	The dashboard choice 3 probability. </summary>
 std::string Dashboard::choice3Probability;
 
 std::string Dashboard::cowSleepingTurns;
 using namespace std;
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Default constructor. Initialize the dashboard with some explanatory description
+/// 			 </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 Dashboard::Dashboard()
 {
 	ApplicationInformation("Andrew Servania - KMINT Week 3");
 
-	//comment1 = "The cow starts in a 'Chasing' state. When the cow reaches the rabbit. The rabbit makes a";
-	//comment2 = "choice between three states: 'Fleeing','Search For Weapon' or Search For Pill.'";
-
-	//comment3 = "The probability of a state being chosen depends on the probability percentage assigned to";
-	//comment4 = "a given state. Initially 'Fleeing' has a 30% chance of being chosen. Search For Weapon has 40%";
-	//comment5 = "and 'Search For Pill' has 30%. A states probability is increased by 2% evertime it is chosen.";
-	//comment6 = "If the rabbit chooses to 'Flee'. It jumps to a random node.";
-
-	//comment7 = "If the rabbit chooses to 'Search For a Pill it uses the A*star path-finding algorithm to find the shortest path to";
-	//comment8 = "the pill. If the cow reaches the rabbit, the cow goes in a 'Sleeping' state for 5 turns and rabbit 'Flee's";
-	//comment9 = "to safety. If the rabbit chooses to 'Search For a Weapon' it uses A*star as well to search for a weapon.";
-	//comment10 = "After picking up the weapon, if the cow reaches a neighboring node of rabbit. The cow gets ";
-	//comment11 = "gets 'blown' away to a random location. The pill and the weapon always  respawn on an empty ";
-	//comment12 = "node.";
 
 	comment1 = "The cow starts in a 'Chasing' state and the rabbit in a 'Wandering' state.";
 	comment2 = "When the cow reaches the rabbit, the rabbit makes a choice between three states:";
 	comment3 = "'Fleeing', 'Search For Weapon' or Search For Pill.'";
-
 
 	comment4 = "If the rabbit chooses to 'Search For a Pill' it uses the A*star path-finding algorithm to find the";
 	comment5 = "shortest path to the pill. If the cow reaches the rabbit, the cow goes in a 'Sleeping' state for 5 turns";
@@ -66,10 +64,6 @@ Dashboard::Dashboard()
 	comment12 = "and 'Search For Pill' has 30%. A state's probability is increased by 2% evertime it is chosen.";
 	comment13 = "The minimum percentage for each state is 10%. and the maximum is 80%.";
 
-
-  //comment6 = "-------------------------------------------------------------------------------------------";
-	//ShortestPathLabel("");
-
 	SetChoice1Probablity(ProbabilityDistribution::Instance()->GetChoice1Probability());
 	SetChoice2Probablity(ProbabilityDistribution::Instance()->GetChoice2Probability());
 	SetChoice3Probablity(ProbabilityDistribution::Instance()->GetChoice3Probability());
@@ -77,9 +71,21 @@ Dashboard::Dashboard()
 	cowSleepingTurns = "Cow Sleeping Turns: 0";
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Destructor. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 Dashboard::~Dashboard()
 {
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Updates the dashboard in realtime. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void Dashboard::Update()
 {

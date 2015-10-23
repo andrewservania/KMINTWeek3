@@ -2,17 +2,41 @@
 
 using namespace std;
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Default constructor. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 AStar::AStar()
 {
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Destructor. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 AStar::~AStar()
 {
 }
 
-// Method responsible for calculating the shortest path between a given start node and goal node
-// The method is based on the AStar algorithm pseudo code found on Wikipedia:
-// https://en.wikipedia.org/wiki/A*_search_algorithm
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>
+/// Method responsible for calculating the shortest path between a given start node and goal node
+/// The method is based on the AStar algorithm pseudo code found on Wikipedia:
+/// https://en.wikipedia.org/wiki/A*_search_algorithm.
+/// </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="start">	[in,out] If non-null, the start. </param>
+/// <param name="goal"> 	[in,out] If non-null, the goal. </param>
+///
+/// <returns>	null if it fails, else the shortest path. </returns>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 stack<Node*> AStar::GetShortestPath(Node* start, Node* goal)
 {
 	this->source = start;																		// Set the start node
@@ -64,10 +88,33 @@ stack<Node*> AStar::GetShortestPath(Node* start, Node* goal)
 	return failure;																				// Return an empty stack
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Calculates the hueristic value of two given nodes </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="start">	The node to start at. </param>
+/// <param name="goal"> 	The node to go to. </param>
+///
+/// <returns>	The calculated h. </returns>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 float AStar::CalculateH(Node* start, Node* goal)
 {
 	return start->DistanceTo(goal);
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Reconstruct path. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///	 
+///	 Reconstruct the shortest path from the current given node.
+/// 
+/// <param name="current">	The node at which to reconstruct the path from. </param>
+///
+/// <returns>	null if it fails, else a stack of nodes containing the total path </returns>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 stack<Node*> AStar::ReconstructPath(Node* current)
 {
@@ -84,11 +131,24 @@ stack<Node*> AStar::ReconstructPath(Node* current)
 	return totalPath;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Function call operator. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+/// 
+/// overloaded function call operator in order to compare nodes
+///  
+/// <param name="node1">	The first node. </param>
+/// <param name="node2">	The second node. </param>
+///
+/// <returns>	true of the first node is closer than the second node, otherwise false. </returns>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 bool AStar::CompareNode::operator()(const Node* node1, const Node* node2) const
 {
 	if (node1 == node2) return false;
 	if (node1 == nullptr) return true;
 	if (node2 == nullptr) return false;
 
-	return *node1 < *node2; // Wow ! DO NOT FORGET THOSE POINTER ASTERICKS! OTHERWISE THE WHOLE THING WILL NOT COMPARE PROPERLY!
+	return *node1 < *node2; 
 }

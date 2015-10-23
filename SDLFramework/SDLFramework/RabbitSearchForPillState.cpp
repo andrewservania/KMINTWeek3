@@ -6,14 +6,37 @@
 
 using namespace std;
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Default constructor.
+/// 			Set rabbitStartSearching flag to false. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 RabbitSearchForPillState::RabbitSearchForPillState()
 {
 	rabbitStartedSearching = false;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Destructor. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 RabbitSearchForPillState::~RabbitSearchForPillState()
 {
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Starts searching for the pill.
+/// 			If the rabbit hasn't start searching for a pill yet, the rabbit
+/// 			will start searching by calculating the shortest path to the pill. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="rabbit">	[in,out] If non-null, the rabbit. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void RabbitSearchForPillState::StartSearchingForPill(Rabbit* rabbit)
 {
@@ -26,14 +49,31 @@ void RabbitSearchForPillState::StartSearchingForPill(Rabbit* rabbit)
 	}
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Take action right after entering the state.
+/// 			Calculate the shortest path to the pill.
+/// 			Set the step timer to 0. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="rabbit">	[in,out] If non-null, the rabbit. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void RabbitSearchForPillState::Enter(Rabbit* rabbit)
 {
 	stepTimer = 0;
 	shared_ptr<AStar> astar = make_shared<AStar>();
 	shortestPath = astar->GetShortestPath(rabbit->getCurrentNode(), Graph::pill->GetCurrentNode());
-
-	//	UpdateShortestPathLabel(shortestPath);
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	The rabbit calculate the shortest path to the pill and walk step by step
+/// 			towards the pill. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="rabbit">	[in,out] If non-null, the rabbit. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void RabbitSearchForPillState::Execute(Rabbit* rabbit)
 {
@@ -51,14 +91,28 @@ void RabbitSearchForPillState::Execute(Rabbit* rabbit)
 		stepTimer++;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Take action right before exiting the state. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="rabbit">	[in,out] If non-null, the rabbit. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void RabbitSearchForPillState::Exit(Rabbit* rabbit)
 {
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Updates the shortest path label with the shortest path. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="_shortestPath">	[in,out] If non-null, full pathname of the shortest file. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void RabbitSearchForPillState::UpdateShortestPathLabel(stack<Node*> _shortestPath)
 {
-	//shared_ptr<AStar> aStar = make_shared<AStar>();
-	//auto shortPath = aStar->GetShortestPath(rabbit->getCurrentNode(), pill->GetCurrentNode());
 	string shortestPathLabel = "Shortest path from rabbit to pill: ";
 	while (!_shortestPath.empty())
 	{
