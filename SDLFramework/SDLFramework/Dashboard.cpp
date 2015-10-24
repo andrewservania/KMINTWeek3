@@ -3,7 +3,7 @@
 #include "Graph.h"
 #include "ProbabilityDistribution.h"
 
-/// <summary>	Information describing the dashboard application. </summary>
+/// <summary>	Information describing the application. </summary>
 std::string Dashboard::applicationInformation;
 /// <summary>	The dashboard shortest path label. </summary>
 std::string Dashboard::shortestPathLabel;
@@ -37,7 +37,7 @@ std::string Dashboard::cowSleepingTurns;
 using namespace std;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-/// <summary>	Default constructor. Initialize the dashboard with some explanatory description
+/// <summary>	Default constructor. Initialize the dashboard with some explanatory description.
 /// 			 </summary>
 ///
 /// <remarks>	Andrew Servania,. </remarks>

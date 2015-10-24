@@ -89,7 +89,7 @@ stack<Node*> AStar::GetShortestPath(Node* start, Node* goal)
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-/// <summary>	Calculates the hueristic value of two given nodes </summary>
+/// <summary>	Calculates the hueristic value between two given nodes </summary>
 ///
 /// <remarks>	Andrew Servania,. </remarks>
 ///
@@ -105,15 +105,14 @@ float AStar::CalculateH(Node* start, Node* goal)
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-/// <summary>	Reconstruct path. </summary>
+/// <summary>	Reconstruct shortest path starting from the current node. </summary>
 ///
 /// <remarks>	Andrew Servania,. </remarks>
 ///	 
-///	 Reconstruct the shortest path from the current given node.
 /// 
 /// <param name="current">	The node at which to reconstruct the path from. </param>
 ///
-/// <returns>	null if it fails, else a stack of nodes containing the total path </returns>
+/// <returns>	null if it fails, else a stack containing the shortest path.</returns>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 stack<Node*> AStar::ReconstructPath(Node* current)
