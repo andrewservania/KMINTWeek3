@@ -5,7 +5,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Default constructor.
-/// 			Set timer to 0. 
+/// 			Set timer to 0.
 /// 			Set 'fled' flag to false. </summary>
 ///
 /// <remarks>	Andrew Servania,. </remarks>
@@ -45,8 +45,8 @@ void RabbitFleeingState::Enter(Rabbit* rabbit)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary> Check whether the rabbit has not fled from the cow yet.
-/// 		  Check this by determining whether the rabbit is standing on the same node as the 
-/// 		  cow while being in a Fleeing state. 
+/// 		  Check this by determining whether the rabbit is standing on the same node as the
+/// 		  cow while being in a Fleeing state.
 /// 		  Set the location of the rabbit to a random node as long as its not the same location
 /// 		  as the cow, the pill and the weapon.
 /// 		  Set the state of the rabbit back to Wandering State.

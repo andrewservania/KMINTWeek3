@@ -80,19 +80,19 @@ void RabbitSearchForWeaponState::Enter(Rabbit* rabbit)
 void RabbitSearchForWeaponState::Execute(Rabbit* rabbit)
 {
 	StartSearchingForWeapon(rabbit);
-		if (stepTimer == 50)
+	if (stepTimer == 50)
+	{
+		if (!shortestPath.empty())					    // If shortest path is empty, then go to the goal node step by step
 		{
-			if (!shortestPath.empty())					    // If shortest path is empty, then go to the goal node step by step
-			{
-				rabbit->setCurrentNode(shortestPath.top()); // Cow will walk to the top next node
-				shortestPath.pop();						    // Now remove the top next node
-				stepTimer = 0;
-			}
-			else{
-				Graph::weapon->PutOnRandomLocation();
-			}
+			rabbit->setCurrentNode(shortestPath.top()); // Cow will walk to the top next node
+			shortestPath.pop();						    // Now remove the top next node
+			stepTimer = 0;
 		}
-		stepTimer++;
+		else{
+			Graph::weapon->PutOnRandomLocation();
+		}
+	}
+	stepTimer++;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

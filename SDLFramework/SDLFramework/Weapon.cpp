@@ -3,15 +3,15 @@
 #include "RabbitWanderingState.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-/// <summary>	Default constructor.  			
+/// <summary>	Default constructor.
 /// 			Create a weapon by providing an id, a location on the arena.
 ///
 /// 			1) A picture of a weapon is loaded to screen.
 /// 			2) The color of the weapon is set to "nothing"
-/// 			3) The weapon is added to items that must be shown on screen.  
-/// 			4) Set the location of the weapon on a node at random as long as its  
+/// 			3) The weapon is added to items that must be shown on screen.
+/// 			4) Set the location of the weapon on a node at random as long as its
 /// 			   not on the same location as the rabbit, the cow and the pill.
-/// 			
+///
 /// <remarks>	Andrew Servania,. </remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -44,7 +44,7 @@ Weapon::~Weapon()
 /// <summary>	Update the weapon.
 /// 			If the rabbit is standing on the same location as the weapon
 /// 			and the rabbit has been searching for a weapon, consume the pill and go into a
-/// 			Wandering state.	
+/// 			Wandering state.
 /// 			/summary>
 ///
 /// <remarks>	Andrew Servania,. </remarks>

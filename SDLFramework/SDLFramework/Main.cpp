@@ -8,10 +8,10 @@
 #include "Dashboard.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-/// <summary>	Main entry-point for this application. 
-/// 			
+/// <summary>	Main entry-point for this application.
+///
 /// 			  Initialize SDL, the dashboard and all game entities.
-/// 			
+///
 /// 			</summary>
 ///
 /// <remarks>	Andrew Servania,. </remarks>

@@ -11,13 +11,13 @@ using namespace std;
 /// A class created to distribute probability among three choices in the most amateuristic way
 /// possible. My sincere apologies to any statisticians ,computer-math scientists, scientific
 /// software engineers. I stand open to all your expert feedback. :)
-/// 
+///
 /// Create a probability distribution object that can distribute the probability percentage
 /// between 3 choices. These 3 choices get the following probability distribution by default
-/// Choice 1 40% 
+/// Choice 1 40%
 /// Choice 2 30%
 /// Choice 3 30%
-/// 
+///
 /// The method
 /// </summary>
 ///
@@ -25,8 +25,8 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ProbabilityDistribution::ProbabilityDistribution() : choice1Probability(40), // percent
-													 choice2Probability(30), // percent
-													 choice3Probability(30)  // percent
+choice2Probability(30), // percent
+choice3Probability(30)  // percent
 {
 	currentTotalProbability = totalProbability;
 	assert((choice1Probability + choice2Probability + choice3Probability) == 100 && "The probability numbers are incorrect. Make sure the choice percentages equal 100% and 100% only.");
@@ -44,11 +44,11 @@ ProbabilityDistribution::~ProbabilityDistribution()
 {
 }
 
-/// <summary>	Constructor. 
-/// 			
+/// <summary>	Constructor.
+///
 /// 			Creates a probability distribution object that percentages custom-provided percentages
 /// 			The function checks in order to make sure that percentages ALWAYS sum up to 100 and 100 ONLY.
-/// 			
+///
 /// 			</summary>
 ///
 /// <remarks>	Andrew Servania,. </remarks>
@@ -70,7 +70,7 @@ ProbabilityDistribution::ProbabilityDistribution(int probabilityChoice1, int pro
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-/// <summary>	Generates a random choice (in the form an integer) based on the distributed 
+/// <summary>	Generates a random choice (in the form an integer) based on the distributed
 /// 			probabilities. </summary>
 ///
 /// <remarks>	Andrew Servania,. </remarks>
@@ -156,7 +156,7 @@ void ProbabilityDistribution::IncreaseChoice1Probability()
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-/// <summary>	Increase choice 2 probability by 2% while making sure that a choice never gets a 
+/// <summary>	Increase choice 2 probability by 2% while making sure that a choice never gets a
 /// 			probability greater than 80% or lower than 10% </summary>
 ///
 /// <remarks>	Andrew Servania,. </remarks>

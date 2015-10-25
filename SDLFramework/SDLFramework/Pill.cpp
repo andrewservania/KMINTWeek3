@@ -5,8 +5,8 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Default constructor. </summary>
 /// Create a pill by
-/// 1) Loading a picture of the pill  
-/// 2) Set the pill on node at random as long its not onthe same node as the rabbit, the cow, and  
+/// 1) Loading a picture of the pill
+/// 2) Set the pill on node at random as long its not onthe same node as the rabbit, the cow, and
 ///    weapon
 /// 3) Add the pill to items that must be displayed on screen
 /// <remarks>	Andrew Servania,. </remarks>
@@ -37,7 +37,7 @@ Pill::~Pill()
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>
-/// If the rabbit is standing on the same node as the pill and the rabbit has been searching for a 
+/// If the rabbit is standing on the same node as the pill and the rabbit has been searching for a
 /// pill, consume it go into a Wandering state.
 /// </summary>
 ///

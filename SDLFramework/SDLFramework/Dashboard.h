@@ -22,7 +22,6 @@ private:
 	static std::string comment12;
 	static std::string comment13;
 
-
 	static std::string choice1Probability;
 	static std::string choice2Probability;
 	static std::string choice3Probability;

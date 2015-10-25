@@ -492,4 +492,3 @@ void FWApplication::Quit()
 {
 	mIsRunning = false;
 }
-

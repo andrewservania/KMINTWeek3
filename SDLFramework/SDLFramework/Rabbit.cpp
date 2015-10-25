@@ -5,13 +5,13 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Constructor.
 /// 			Create a rabbit by providing it an id.
-/// 			1) Load a picture of the rabbit.  
-/// 			2) Put the rabbit on a random node as long as its not on the same location as the  
+/// 			1) Load a picture of the rabbit.
+/// 			2) Put the rabbit on a random node as long as its not on the same location as the
 /// 			   cow, the pill and the weapon.
-/// 			3) Set pickedUpPill and pickedUpWeapon flags to false.  
-/// 			4) Instantiate the state machine of the rabbit.  
+/// 			3) Set pickedUpPill and pickedUpWeapon flags to false.
+/// 			4) Instantiate the state machine of the rabbit.
 /// 			5) Set the state of the rabbit to Wandering
-/// 			
+///
 /// 			  </summary>
 ///
 /// <remarks>	Andrew Servania,. </remarks>

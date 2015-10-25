@@ -8,7 +8,7 @@
 using namespace std;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-/// <summary>	Default constructor. 
+/// <summary>	Default constructor.
 /// 			Set pathIsCalculated flag to false
 /// 			Set counter to zero.
 /// 			</summary>

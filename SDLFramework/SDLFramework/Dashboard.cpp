@@ -47,7 +47,6 @@ Dashboard::Dashboard()
 {
 	ApplicationInformation("Andrew Servania - KMINT Week 3");
 
-
 	comment1 = "The cow starts in a 'Chasing' state and the rabbit in a 'Wandering' state.";
 	comment2 = "When the cow reaches the rabbit, the rabbit makes a choice between three states:";
 	comment3 = "'Fleeing', 'Search For Weapon' or Search For Pill.'";
@@ -124,5 +123,4 @@ void Dashboard::Update()
 	FWApplication::GetInstance()->DrawText(choice1Probability, 300, 540);
 	FWApplication::GetInstance()->DrawText(choice2Probability, 300, 560);
 	FWApplication::GetInstance()->DrawText(choice3Probability, 300, 580);
-
 }

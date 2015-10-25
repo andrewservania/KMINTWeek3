@@ -19,9 +19,9 @@ Weapon* Graph::weapon;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Constructor.
-/// 			1) Create 8 nodes.  
-/// 			2) Set specific nodes as neighbors  
-/// 			3) Created egdes between these neighbors and give these edges a weight of 10000  
+/// 			1) Create 8 nodes.
+/// 			2) Set specific nodes as neighbors
+/// 			3) Created egdes between these neighbors and give these edges a weight of 10000
 /// 			4) Add these nodes to a vector future easy access.
 /// 			  </summary>
 ///
@@ -78,15 +78,15 @@ Graph::Graph(FWApplication* _application)
 	graphNodes.push_back(node8);
 
 	// 1) Create a rabbit
-	rabbit = new Rabbit(1);												
+	rabbit = new Rabbit(1);
 	// 2) Create a pill at a random location
-	pill = new Pill();													
+	pill = new Pill();
 	// 3) Create a weapon at a random location
-	weapon = new Weapon();											
+	weapon = new Weapon();
 	// 4) Create a cow
-	cow = new Cow(2);													
+	cow = new Cow(2);
 	// Update the shortest path label with the shortest path based on the cow and rabbit's current node
-	UpdateShortPathDescription();										
+	UpdateShortPathDescription();
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -108,8 +108,8 @@ float AStar::CalculateH(Node* start, Node* goal)
 /// <summary>	Reconstruct shortest path starting from the current node. </summary>
 ///
 /// <remarks>	Andrew Servania,. </remarks>
-///	 
-/// 
+///
+///
 /// <param name="current">	The node at which to reconstruct the path from. </param>
 ///
 /// <returns>	null if it fails, else a stack containing the shortest path.</returns>
@@ -134,9 +134,9 @@ stack<Node*> AStar::ReconstructPath(Node* current)
 /// <summary>	Function call operator. </summary>
 ///
 /// <remarks>	Andrew Servania,. </remarks>
-/// 
+///
 /// overloaded function call operator in order to compare nodes
-///  
+///
 /// <param name="node1">	The first node. </param>
 /// <param name="node2">	The second node. </param>
 ///
@@ -149,5 +149,5 @@ bool AStar::CompareNode::operator()(const Node* node1, const Node* node2) const
 	if (node1 == nullptr) return true;
 	if (node2 == nullptr) return false;
 
-	return *node1 < *node2; 
+	return *node1 < *node2;
 }

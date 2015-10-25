@@ -12,12 +12,12 @@ using namespace std;
 /// <summary>	Constructor. </summary>
 /// Create a cow by
 /// 1) Load a picture of the cow.
-/// 2) add the cow to items that have to be displayed on screen.  
-/// 3) Set the current node of the cow at random as long as its not at the same location as the  
+/// 2) add the cow to items that have to be displayed on screen.
+/// 3) Set the current node of the cow at random as long as its not at the same location as the
 ///    rabbit, pill and weapon.
-/// 4) instantiate the state machine of the cow.  
-/// 5) Set the cow's state to CowChaseRabbit State  
-/// 6) 
+/// 4) instantiate the state machine of the cow.
+/// 5) Set the cow's state to CowChaseRabbit State
+/// 6)
 /// <remarks>	Andrew Servania,. </remarks>
 ///
 /// <param name="id">	The identifier. </param>
@@ -36,8 +36,8 @@ Cow::Cow(int id) : BaseGameEntity(id)
 	// pill and weapon.
 	while (currentNode->id == Graph::rabbit->getCurrentNode()->id ||
 		currentNode->id == Graph::pill->GetCurrentNode()->id ||
-		currentNode->id == Graph::weapon->GetCurrentNode()->id)	   
-		setCurrentNode(Graph::graphNodes.at(rand() % 8));		   
+		currentNode->id == Graph::weapon->GetCurrentNode()->id)
+		setCurrentNode(Graph::graphNodes.at(rand() % 8));
 
 	// Set up the state machine
 	stateMachine = new StateMachine<Cow>(this);

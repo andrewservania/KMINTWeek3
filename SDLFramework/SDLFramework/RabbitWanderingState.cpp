@@ -41,10 +41,10 @@ void RabbitWanderingState::Enter(Rabbit* rabbit)
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-/// <summary>	Execute the code corresponding to the Wandering state for the rabbit. 
+/// <summary>	Execute the code corresponding to the Wandering state for the rabbit.
 /// 			1) Use either the pill or weapon.
-/// 			2) Check whether the cow is sleeping on the same node as the rabbit. If so, flee.  
-/// 			3) If the cow is chasing the rabbit and the cow catches the rabbit,  
+/// 			2) Check whether the cow is sleeping on the same node as the rabbit. If so, flee.
+/// 			3) If the cow is chasing the rabbit and the cow catches the rabbit,
 /// 			   the rabbit will pick a strategy (search for a pill, a weapon or simply flee)
 /// 			   determined by how the chances (in percentages) per strategy are distributed.
 /// 			</summary>
@@ -100,7 +100,7 @@ void RabbitWanderingState::Exit(Rabbit* rabbit)
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Use pill.
 /// 			If the rabbit is on the same node as the pill and has picked up the pill,
-/// 			rabbit will go into a Sleeping state. 
+/// 			rabbit will go into a Sleeping state.
 /// 			Set pickedUpPill flag to false.
 /// 			  </summary>
 ///
